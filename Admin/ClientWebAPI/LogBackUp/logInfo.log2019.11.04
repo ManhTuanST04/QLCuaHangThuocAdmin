@@ -1,0 +1,12 @@
+((null)) 2019-11-04 08:48:14,309 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-11-04 08:48:16,044 INFO ClientWebAPI.Controllers.AccountController - Tạo cache LST_USER_CACHE 
+(tuanvm13) 2019-11-04 08:50:40,354 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-11-04 08:50:57,920 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-11-04 08:52:14,618 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-11-04 08:52:30,428 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+((null)) 2019-11-04 12:43:27,382 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-11-04 12:43:27,740 INFO ClientWebAPI.Controllers.AccountController - Tạo cache LST_USER_CACHE 
+(tuanvm13) 2019-11-04 12:43:46,191 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-11-04 12:54:04,667 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-11-04 12:58:35,585 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-11-04 13:06:26,983 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 

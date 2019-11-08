@@ -1,0 +1,6 @@
+((null)) 2019-10-25 00:22:31,443 ERROR ClientWebAPI.Controllers.PrepareController - Không thể kết nối đến API 
+(tuanvm13) 2019-10-25 00:30:30,249 ERROR ClientWebAPI.Controllers.AccountController - User:tuanvm13-> Không thể kết nối đến API 
+(tuanvm13) 2019-10-25 00:31:08,936 ERROR ClientWebAPI.Controllers.AccountController - User:tuanvm13-> Không thể kết nối đến API 
+(tuanvm13) 2019-10-25 00:31:15,019 ERROR ClientWebAPI.Controllers.AccountController - User:tuanvm13-> Không thể kết nối đến API 
+(tuanvm13) 2019-10-25 00:32:41,905 ERROR ClientWebAPI.Controllers.AccountController - User:tuanvm13-> Không thể kết nối đến API 
+(tuanvm13) 2019-10-25 00:32:48,916 ERROR ClientWebAPI.Controllers.AccountController - User:tuanvm13-> Không thể kết nối đến API 

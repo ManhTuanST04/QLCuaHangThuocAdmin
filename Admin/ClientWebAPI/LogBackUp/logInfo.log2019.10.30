@@ -1,0 +1,29 @@
+((null)) 2019-10-30 12:46:38,164 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-10-30 12:46:38,492 INFO ClientWebAPI.Controllers.AccountController - Tạo cache LST_USER_CACHE 
+(tuanvm13) 2019-10-30 12:49:54,313 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:50:09,621 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:50:25,082 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:50:40,932 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:51:03,517 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:51:54,446 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:52:11,124 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:52:31,606 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:53:51,955 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:55:44,149 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:55:57,314 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:56:07,456 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:56:16,024 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:59:20,242 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:59:29,921 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:59:36,970 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:59:41,284 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:59:45,149 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 12:59:50,362 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 13:00:05,901 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 13:00:17,617 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 13:00:19,309 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 13:00:20,385 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 13:00:22,985 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 13:00:50,664 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 13:01:36,334 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-10-30 13:05:22,407 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 

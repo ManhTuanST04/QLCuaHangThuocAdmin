@@ -1,0 +1,14 @@
+2019-10-16 21:48:22,518 INFO ClientWebAPI.Controllers.AccountController - Thêm mới thành công 
+2019-10-16 21:53:00,517 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+2019-10-16 21:55:14,972 INFO ClientWebAPI.Controllers.AccountController - Thêm mới thành công 
+((null)) 2019-10-16 22:07:33,646 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(XXX) 2019-10-16 22:08:23,702 INFO ClientWebAPI.Controllers.AccountController - Thêm mới thành công 
+((null)) 2019-10-16 22:12:59,872 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-10-16 22:13:09,705 INFO ClientWebAPI.Controllers.AccountController - Cập nhật User thành công! 
+(tuanvm13) 2019-10-16 22:13:16,939 INFO ClientWebAPI.Controllers.AccountController - Xóa thành công User: id = 55 
+(tuanvm13) 2019-10-16 22:16:53,360 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-10-16 22:54:42,653 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-10-16 22:54:42,955 INFO ClientWebAPI.Controllers.AccountController - Tạo cache LST_USER_CACHE 
+(tuanvm13) 2019-10-16 22:54:50,548 INFO ClientWebAPI.Controllers.AccountController - Xóa thành công User: id = 54 
+(tuanvm13) 2019-10-16 22:54:56,836 INFO ClientWebAPI.Controllers.AccountController - Tạo cache LST_USER_CACHE 
+(tuanvm13) 2019-10-16 22:55:59,269 INFO ClientWebAPI.Controllers.AccountController - Tạo cache LST_USER_CACHE 

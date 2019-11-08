@@ -1,0 +1,8 @@
+2019-10-16 21:53:16,066 ERROR ClientWebAPI.Controllers.AccountController - Exception of type 'System.Exception' was thrown. 
+2019-10-16 21:54:21,365 ERROR ClientWebAPI.Controllers.AccountController - Exception of type 'System.Exception' was thrown. 
+2019-10-16 21:55:34,763 ERROR ClientWebAPI.Controllers.AccountController - Không thể kết nối đến API 
+2019-10-16 22:07:20,748 ERROR ClientWebAPI.Controllers.PrepareController - Không thể kết nối đến API 
+(tuanvm13) 2019-10-16 22:14:27,764 ERROR ClientWebAPI.Controllers.AccountController - Không thể kết nối đến API 
+(tuanvm13) 2019-10-16 22:15:05,713 ERROR ClientWebAPI.Controllers.AccountController - Không thể kết nối đến API 
+(tuanvm13) 2019-10-16 22:55:13,504 ERROR ClientWebAPI.Controllers.AccountController - Không thể kết nối đến API 
+(tuanvm13) 2019-10-16 22:56:18,695 ERROR ClientWebAPI.Controllers.AccountController - Không thể kết nối đến API 

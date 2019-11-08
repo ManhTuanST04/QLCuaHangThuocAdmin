@@ -1,0 +1,4 @@
+((null)) 2019-10-24 22:19:39,682 ERROR ClientWebAPI.Controllers.PrepareController - Không thể kết nối đến API 
+((null)) 2019-10-24 22:22:21,074 ERROR ClientWebAPI.Controllers.PrepareController - Không thể kết nối đến API 
+(tuanvm13) 2019-10-24 22:27:06,321 ERROR ClientWebAPI.Controllers.AccountController - Không thể kết nối đến API 
+(tuanvm13) 2019-10-24 23:57:54,339 ERROR ClientWebAPI.Controllers.AccountController - Không thể kết nối đến API 
