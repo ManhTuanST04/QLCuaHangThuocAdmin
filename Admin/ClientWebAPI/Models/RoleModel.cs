@@ -10,6 +10,7 @@ namespace ClientWebAPI.Models
         public int id { set; get; }
 
         public String name { set; get; }
+        public String code { set; get; }
 
     }
 }

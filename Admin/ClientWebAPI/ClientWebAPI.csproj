@@ -159,6 +159,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\PrepareController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -166,6 +167,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IService\IAccountService.cs" />
+    <Compile Include="IService\IPermissionService.cs" />
     <Compile Include="IService\IProductService.cs" />
     <Compile Include="IService\IRoleSevice.cs" />
     <Compile Include="Models\AccountModel.cs" />
@@ -176,6 +178,7 @@
     <Compile Include="Models\UserRoleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceImpl\AccountService.cs" />
+    <Compile Include="ServiceImpl\PermissionService.cs" />
     <Compile Include="ServiceImpl\ProductService.cs" />
     <Compile Include="ServiceImpl\RoleService.cs" />
   </ItemGroup>
@@ -285,6 +288,8 @@
     <Content Include="Views\Shared\401.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Role\PhanQuyenUser.cshtml" />
+    <Content Include="Views\Role\GetAllRole.cshtml" />
+    <Content Include="Views\Permission\GetPerOfRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

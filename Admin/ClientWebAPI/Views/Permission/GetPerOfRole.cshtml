@@ -1,0 +1,94 @@
+﻿@using ClientWebAPI.Models;
+@model IEnumerable<PermissionModel>
+
+@{
+    ViewBag.Title = "GetPerOfRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<PermissionModel> lstAllPer = (List<PermissionModel>)ViewBag.LST_ALL_PER;
+
+}
+
+<div class="row">
+<div class="col-lg-12">
+    <h1 class="page-header">Quản lý các quyền của vai trò</h1>
+</div>
+<!-- /.col-lg-12 -->
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="display: list-item;font-weight: 700; height: 55px;">
+                <div style="float:left">Danh sách quyền</div>
+            </div>
+            <div class="form-group">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th style="width:20%;text-align:center">Check</th>
+                                <th style="width:40%; ">Tên Quyền</th>
+                                <th style="width:40%; ">Mã Quyền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (lstAllPer.Count > 0)
+                            {
+                                for (int i = 0; i < lstAllPer.Count; i++)
+                                {
+                                    PermissionModel per = lstAllPer[i];
+                                    bool isCheck = false;
+
+                                    foreach (var perModel in Model)
+                                    {
+                                        if (per.id == perModel.id)
+                                        {
+                                            isCheck = true;
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            isCheck = false;
+                                        }
+                                    }
+
+                                    if (isCheck)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td style="text-align:center"><input type="checkbox" name="role" value="@per.id" checked /></td>
+                                            <td>@per.name</td>
+                                            <td>@per.code</td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td style="text-align:center"><input type="checkbox" name="role" value="@per.id" /></td>
+                                            <td>@per.name</td>
+                                            <td>@per.code</td>
+                                        </tr>
+                                    }
+
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="well" style="text-align:center">
+                    <a class="btn btn-danger" href="/Role/GetAllRole">Trở về</a>
+                    <button id="btn-save" class="btn btn-primary">Ghi lại</button>
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+
+

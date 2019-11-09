@@ -92,6 +92,7 @@ function CreateOrUpdate(obj) {
 
 $(document).ready(function () {
     $('#dataTables-example').dataTable();
+    $('#dataTables-example1').dataTable();
 
     $('#openModal').click(function () {
         $('#id').val("");

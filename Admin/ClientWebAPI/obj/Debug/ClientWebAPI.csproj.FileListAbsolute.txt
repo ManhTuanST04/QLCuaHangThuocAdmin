@@ -262,7 +262,7 @@ C:\Users\vuman\Desktop\Github1119\QLCuaHangThuocAdmin\Admin\ClientWebAPI\bin\Sys
 C:\Users\vuman\Desktop\Github1119\QLCuaHangThuocAdmin\Admin\ClientWebAPI\bin\Newtonsoft.Json.xml
 C:\Users\vuman\Desktop\Github1119\QLCuaHangThuocAdmin\Admin\ClientWebAPI\bin\Antlr3.Runtime.pdb
 C:\Users\vuman\Desktop\Github1119\QLCuaHangThuocAdmin\Admin\ClientWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\vuman\Desktop\Github1119\QLCuaHangThuocAdmin\Admin\ClientWebAPI\obj\Debug\ClientWebAPI.csprojAssemblyReference.cache
 C:\Users\vuman\Desktop\Github1119\QLCuaHangThuocAdmin\Admin\ClientWebAPI\obj\Debug\ClientWebAPI.csproj.CopyComplete
 C:\Users\vuman\Desktop\Github1119\QLCuaHangThuocAdmin\Admin\ClientWebAPI\obj\Debug\ClientWebAPI.dll
 C:\Users\vuman\Desktop\Github1119\QLCuaHangThuocAdmin\Admin\ClientWebAPI\obj\Debug\ClientWebAPI.pdb
+C:\Users\vuman\Desktop\Github1119\QLCuaHangThuocAdmin\Admin\ClientWebAPI\obj\Debug\ClientWebAPI.csprojAssemblyReference.cache

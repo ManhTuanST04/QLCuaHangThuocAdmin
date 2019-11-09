@@ -21,7 +21,7 @@ namespace ClientWebAPI.Common
             {
                 foreach (ControlModel x in lstUserControl)
                 {
-                    string control = x.name.ToUpper().ToString().Trim();
+                    string control = x.code.ToUpper().ToString().Trim();
                     sLstUserControl.Add(control);
                 }
             }

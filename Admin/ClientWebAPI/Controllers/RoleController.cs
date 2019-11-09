@@ -59,7 +59,17 @@ namespace ClientWebAPI.Controllers
             return Json(res);
         }
 
+        public ActionResult GetAllRole()
+        {
+            IRoleSevice roleService = new RoleService();
+            IPermissionService perService = new PermissionService();
+            List<RoleModel> lst = roleService.GetAllRole(baseAddress, "role/getallrole");
+            List<PermissionModel> lstPer = perService.GetAllPermission(baseAddress, "permission/getallper");
+            ViewBag.LIST_ALL_PER = lstPer;
 
+
+            return View(lst);
+        }
 
     }
 }
