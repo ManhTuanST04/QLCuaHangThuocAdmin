@@ -71,5 +71,50 @@ namespace ClientWebAPI.Controllers
             return View(lst);
         }
 
+        [HttpGet]
+        public ActionResult AddRole()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddRole(RoleModel roleModel)
+        {
+            IRoleSevice roleService = new RoleService();
+            int res = roleService.AddRole(baseAddress, "role/addrole", roleModel);
+            if(res == 1)
+            {
+                return RedirectToAction("GetAllRole");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Không thể kết nối đến API");
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult UpdateRole(int roleId)
+        {
+            IRoleSevice roleService = new RoleService();
+            RoleModel roleModel = roleService.GetRoleById(baseAddress, $"role/getrolebyid?idRole={roleId}");
+            return View(roleModel);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateRole(RoleModel roleModel)
+        {
+            IRoleSevice roleService = new RoleService();
+            int res = roleService.UpdateRole(baseAddress, "role/updaterole", roleModel);
+            if (res == 1)
+            {
+                return RedirectToAction("GetAllRole");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Không thể kết nối đến API");
+                return View();
+            }
+        }
     }
 }

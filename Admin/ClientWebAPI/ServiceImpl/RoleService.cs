@@ -30,5 +30,30 @@ namespace ClientWebAPI.ServiceImpl
             }
             return Convert.ToInt32(res);
         }
+
+        public int AddRole(string apiBaseAddress, string linkApi, RoleModel roleModel)
+        {
+            var res = APIHelper.PostDataToAPIReturnDynamic(apiBaseAddress, linkApi, roleModel);
+            if (res == null)
+            {
+                res = 0;
+            }
+            return Convert.ToInt32(res);
+        }
+
+        public RoleModel GetRoleById(string apiBaseAddress, string linkApi)
+        {
+            return APIHelper.GetDataFromAPI<RoleModel>(apiBaseAddress, linkApi);
+        }
+
+        public int UpdateRole(string apiBaseAddress, string linkApi, RoleModel roleModel)
+        {
+            var res = APIHelper.PostDataToAPIReturnDynamic(apiBaseAddress, linkApi, roleModel);
+            if (res == null)
+            {
+                res = 0;
+            }
+            return Convert.ToInt32(res);
+        }
     }
 }

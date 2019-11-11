@@ -157,6 +157,7 @@
     <Compile Include="Common\RedisCacheHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ControlController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
@@ -167,6 +168,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IService\IAccountService.cs" />
+    <Compile Include="IService\IControlService.cs" />
     <Compile Include="IService\IPermissionService.cs" />
     <Compile Include="IService\IProductService.cs" />
     <Compile Include="IService\IRoleSevice.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="Models\UserRoleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceImpl\AccountService.cs" />
+    <Compile Include="ServiceImpl\ControlService.cs" />
     <Compile Include="ServiceImpl\PermissionService.cs" />
     <Compile Include="ServiceImpl\ProductService.cs" />
     <Compile Include="ServiceImpl\RoleService.cs" />
@@ -290,6 +293,9 @@
     <Content Include="Views\Role\PhanQuyenUser.cshtml" />
     <Content Include="Views\Role\GetAllRole.cshtml" />
     <Content Include="Views\Permission\GetPerOfRole.cshtml" />
+    <Content Include="Views\Control\GetControlPer.cshtml" />
+    <Content Include="Views\Role\AddRole.cshtml" />
+    <Content Include="Views\Role\UpdateRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

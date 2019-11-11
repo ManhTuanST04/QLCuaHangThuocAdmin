@@ -1,4 +1,5 @@
-﻿using ClientWebAPI.IService;
+﻿using ClientWebAPI.Common;
+using ClientWebAPI.IService;
 using ClientWebAPI.Models;
 using ClientWebAPI.ServiceImpl;
 using log4net;
@@ -18,6 +19,7 @@ namespace ClientWebAPI.Controllers
         ILog log = LogManager.GetLogger(typeof(ProductController));
         // GET: Product
 
+        [RBACAuthorizeAttribute(Control = "ViewProduct")]
         public ActionResult Index()
         {
             try

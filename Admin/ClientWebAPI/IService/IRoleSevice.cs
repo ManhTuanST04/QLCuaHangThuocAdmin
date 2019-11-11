@@ -12,5 +12,8 @@ namespace ClientWebAPI.IService
         List<RoleModel> GetAllRole(string apiBaseAddress, string linkApi);
         List<RoleModel> GetRoleUser(string apiBaseAddress, string linkApi);
         int AssignRoleForUser(string apiBaseAddress, string linkApi, UserRoleModel userRoleModel);
+        int AddRole(string apiBaseAddress, string linkApi, RoleModel roleModel);
+        RoleModel GetRoleById(string apiBaseAddress, string linkApi);
+        int UpdateRole(string apiBaseAddress, string linkApi, RoleModel roleModel);
     }
 }
