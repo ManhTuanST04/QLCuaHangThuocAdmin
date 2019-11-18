@@ -32,11 +32,11 @@ namespace ClientWebAPI.Controllers
             AccountModel acc = accountService.GetAccountById(baseAddress, $"account/getuserbyid?id={userId}");
             if(acc.name == "" || acc.name == null)
             {
-                ViewBag.CUR_NANE_USER_SET_ROLE = "Danh sách vai trò của User: " + acc.userName;
+                ViewBag.CUR_NANE_USER_SET_ROLE = "Danh sách Nhóm quyền của User: " + acc.userName;
             }
             else
             {
-                ViewBag.CUR_NANE_USER_SET_ROLE = "Danh sách vai trò của User: " + acc.name;
+                ViewBag.CUR_NANE_USER_SET_ROLE = "Danh sách Nhóm quyền của User: " + acc.name;
             }
 
             Session["ALL_ROLE"] = lstAllRole;
@@ -116,5 +116,21 @@ namespace ClientWebAPI.Controllers
                 return View();
             }
         }
+
+        public ActionResult DeleteRole(int roleId)
+        {
+            IRoleSevice roleService = new RoleService();
+            int res = roleService.DeleteRole(baseAddress, $"role/deleterole?roleId={roleId}");
+            if (res == 1)
+            {
+                return RedirectToAction("GetAllRole");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Không thể kết nối đến API");
+                return View();
+            }
+        }
+
     }
 }

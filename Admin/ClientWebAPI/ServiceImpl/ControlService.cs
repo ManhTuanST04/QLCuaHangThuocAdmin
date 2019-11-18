@@ -19,5 +19,16 @@ namespace ClientWebAPI.ServiceImpl
             return APIHelper.GetDataFromAPI<List<ControlModel>>(apiBaseAddress, linkApi);
         }
 
+        public int AddControlForPer(string apiBaseAddress, string linkApi, ControlModel data)
+        {
+            APIHelper.PostDataToAPIReturnDynamic<ControlModel>(apiBaseAddress, linkApi, data);
+            return 1;
+        }
+
+        public int DeleteControlForPer(string apiBaseAddress, string linkApi, ControlModel data)
+        {
+            APIHelper.PostDataToAPIReturnDynamic<ControlModel>(apiBaseAddress, linkApi, data);
+            return 1;
+        }
     }
 }

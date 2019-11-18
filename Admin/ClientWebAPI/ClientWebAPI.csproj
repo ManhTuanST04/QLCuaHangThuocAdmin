@@ -192,8 +192,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\plugins\chosen\bootstrap-chosen.css" />
+    <Content Include="Content\css\plugins\chosen\chosen-sprite%402x.png" />
+    <Content Include="Content\css\plugins\chosen\chosen-sprite.png" />
     <Content Include="Content\css\plugins\dataTables\dataTables.bootstrap.css" />
     <Content Include="Content\css\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="Content\css\plugins\select2\select2.min.css" />
     <Content Include="Content\css\plugins\social-buttons\social-buttons.css" />
     <Content Include="Content\css\plugins\timeline\timeline.css" />
     <Content Include="Content\css\sb-admin.css" />
@@ -245,6 +249,8 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\CustomJS\Account.js" />
     <Content Include="Scripts\CustomJS\Role.js" />
+    <Content Include="Scripts\flugins\chosen\chosen.jquery.js" />
+    <Content Include="Scripts\flugins\select2\select2.full.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -292,8 +298,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Role\PhanQuyenUser.cshtml" />
     <Content Include="Views\Role\GetAllRole.cshtml" />
-    <Content Include="Views\Permission\GetPerOfRole.cshtml" />
-    <Content Include="Views\Control\GetControlPer.cshtml" />
     <Content Include="Views\Role\AddRole.cshtml" />
     <Content Include="Views\Role\UpdateRole.cshtml" />
   </ItemGroup>
@@ -301,7 +305,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="LogBackUp\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Control\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\Permission\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

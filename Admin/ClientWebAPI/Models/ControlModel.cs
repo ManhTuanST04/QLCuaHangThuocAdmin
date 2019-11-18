@@ -11,5 +11,6 @@ namespace ClientWebAPI.Models
 
         public String name { set; get; }
         public String code { set; get; }
+        public int permissionId { set; get; }
     }
 }

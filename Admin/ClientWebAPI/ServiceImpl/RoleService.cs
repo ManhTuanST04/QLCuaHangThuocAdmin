@@ -24,7 +24,7 @@ namespace ClientWebAPI.ServiceImpl
         public int AssignRoleForUser(string apiBaseAddress, string linkApi, UserRoleModel userRoleModel)
         {
             var res = APIHelper.PostDataToAPIReturnDynamic(apiBaseAddress, linkApi, userRoleModel);
-            if(res == null)
+            if (res == null)
             {
                 res = 0;
             }
@@ -49,6 +49,16 @@ namespace ClientWebAPI.ServiceImpl
         public int UpdateRole(string apiBaseAddress, string linkApi, RoleModel roleModel)
         {
             var res = APIHelper.PostDataToAPIReturnDynamic(apiBaseAddress, linkApi, roleModel);
+            if (res == null)
+            {
+                res = 0;
+            }
+            return Convert.ToInt32(res);
+        }
+
+        public int DeleteRole(string apiBaseAddress, string linkApi)
+        {
+            var res = APIHelper.GetDynamicFromAPI(apiBaseAddress, linkApi);
             if (res == null)
             {
                 res = 0;

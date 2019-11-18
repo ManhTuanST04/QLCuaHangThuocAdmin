@@ -39,4 +39,10 @@ $(document).ready(function () {
         })
 
     });
+
+    function ViewPermissionRole(roleId) {
+        
+    }
+
+
 })

@@ -12,6 +12,7 @@ namespace ClientWebAPI.IService
         List<ControlModel> GetAllControl(string apiBaseAddress, string linkApi);
         List<ControlModel> GetControlPer(string apiBaseAddress, string linkApi);
 
-
+        int AddControlForPer(string apiBaseAddress, string linkApi, ControlModel data);
+        int DeleteControlForPer(string apiBaseAddress, string linkApi, ControlModel data);
     }
 }
