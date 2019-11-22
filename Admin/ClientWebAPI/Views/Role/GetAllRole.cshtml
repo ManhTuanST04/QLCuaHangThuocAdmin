@@ -33,10 +33,10 @@
                         <thead>
                             <tr>
                                 <th style="width:10%;">Id</th>
-                                <th style="width:40%; ">Tên Vai Trò</th>
-                                <th style="width:30%; ">Mã Vai Trò</th>
-                                <th style="width:10%; ">Chức Năng</th>
-                                <th style="text-align:center;width:10%;">Phân quyền</th>
+                                <th style="width:40%; ">Tên Nhóm Quyền</th>
+                                <th style="width:30%; ">Mã Nhóm Quyền</th>
+                                <th style="width:10%; ">Sửa - Xóa</th>
+                                <th style="text-align:center;width:10%;">Role - Control</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,7 +54,8 @@
 
                                         </td>
                                         <td style="text-align:center">
-                                            <a onclick="GetPermissionOfRole(@role.id, '@role.name')"><i class="fa fa-users" aria-hidden="true"></i></a>
+                                            <a onclick="GetPermissionOfRole(@role.id, '@role.name')"><i class="fa fa-shield" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                                            <a onclick="GetControlForRole(@role.id, '@role.name')"><i class="fa fa-cogs" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                 }
@@ -109,7 +110,7 @@
                                             <a onclick=""><i class="fa fa-trash-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
                                         </td>
                                         <td style="text-align:center">
-                                            <a href="/Control/GetControlPer?perId=@per.id"><i class="fa fa-users" aria-hidden="true"></i></a>
+                                            <a onclick=" LoadControlForPer(@per.id)"><i class="fa fa-cogs" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                 }
@@ -214,13 +215,13 @@
                     <div class="col-lg-12" style="margin-bottom:10px">
                         <div class="col-lg-3">Mã Control</div>
                         <div class="col-lg-9" style="padding-left: 0px">
-                            <input class="form-control" id="txtCodeControl"/>
+                            <input class="form-control" id="txtCodeControl" />
                         </div>
                     </div>
                     <div class="col-lg-12" style="margin-bottom:10px">
                         <div class="col-lg-3">Tên Control</div>
                         <div class="col-lg-9" style="padding-left: 0px">
-                            <input class="form-control" id="txtNameControl"/>
+                            <input class="form-control" id="txtNameControl" />
                         </div>
                     </div>
 
@@ -264,7 +265,152 @@
     </div>
 </div>
 
+@*Modal hiển thị danh sách Control của quyền*@
+<div class="modal fade" id="control-of-role-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="title-modal-role-control">Danh sách Control của Quyền</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12" style="margin-bottom:10px">
+                        <label>Các Control có thể gán </label>
+                        <input id="cur-control-role-id" hidden />
+                        <input id="cur-control-role-name" hidden />
+                        <div class="col-lg-10" style="padding-left: 0px">
+                            <select class="form-control" id="cbo-role-control">
+                                <option value="0">Chọn control</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2" style="padding-left:0px; text-align:center">
+                            <button class="btn btn-primary" id="btn-add-role-control">Gán Control</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Quyền của nhóm quyền
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="table-role-control">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:10%;">STT</th>
+                                                <th style="width:40%;">Tên Control</th>
+                                                <th style="width:30%;">Mã Control</th>
+                                                <th style="width:20%;">Xóa</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
+    //Thao tác với Role-Control start
+    //Load conbobox các Control có thể gán cho quyền
+    function LoadDataForComboRoleControl(roleId) {
+        //sua
+        $.ajax({
+            url: "/Control/LoadDataForComboControlRole",
+            type: "POST",
+            data: { roleId: roleId },
+            success: function (res) {
+                var htmlOption = '<option value="0"><h3>Chọn Control</h3></option>';
+                $.each(res, function (key, item) {
+                    htmlOption = htmlOption + '<option value="' + item.id + '">' + item.name + '</option>';
+                    $("#cbo-role-control").html(htmlOption);
+                });
+            }
+        });
+    }
+
+    //load data Control của Role
+    function LoadDataControlRoleOnTable(res) {
+        var htmlTable = "";
+        var i = 0;
+        $.each(res, function (key, item) {
+            i++;
+            htmlTable += '<tr class="odd gradeX">';
+            htmlTable += '<td>' + i + '</td>';
+            htmlTable += '<td>' + item.name + '</td>';
+            htmlTable += '<td>' + item.code + '</td>';
+            htmlTable += '<td style="text-align:center">';
+            htmlTable += '<a onclick="DeleteControlRole(' + item.id +')"><i class="fa fa-trash-o" aria-hidden="true"></i></a> &nbsp;&nbsp;';
+            htmlTable += '</td>';
+            htmlTable += '</tr>';
+        });
+        $('#table-role-control tbody').html(htmlTable);
+    }
+
+    function GetControlForRole(roleId, roleName) {
+        $('#cur-control-role-id').val(roleId);
+        $('#cur-control-role-name').val(roleName);
+
+        $('#title-modal-role-control').html("Quản lý control của Nhóm quyền: " + roleName);
+
+        $.ajax({
+            url: "/Control/GetControlRole",
+            type: "POST",
+            data: { roleId: roleId },
+            success: function (res) {
+                LoadDataControlRoleOnTable(res);
+            }
+        });
+
+        LoadDataForComboRoleControl(roleId);
+        $("#control-of-role-modal").modal("show");
+    }
+
+    //Xóa COntrol khỏi Nhóm quyền 
+    function DeleteControlRole(conId) {
+        var roleId = $('#cur-control-role-id').val();
+        var roleName = $('#cur-control-role-name').val();
+        
+        if (confirm("Bạn có muốn xóa bỏ Control này khỏi nhóm quyền "+roleName+" không?")) {
+            var obj = {
+                roleId: roleId,
+                controlId: conId          
+            }
+
+            $.ajax({
+                url: "/Control/DeleteControlForRole",
+                type: "POST",
+                data: obj,
+                success: function (res) {
+                    LoadDataControlRoleOnTable(res);
+                    toastr.success('Xóa control thành công', 'Thành công', { timeOut: 2000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' });
+                }
+            });
+            LoadDataForComboRoleControl(roleId);
+        }
+    }
+
+    //Thao tác với Role-Control end
+
+
+    //Thao tác với Control-Permission start
+    //load data Control của Permission
     function LoadDataControlOnTable(res) {
         var htmlTable = "";
         var i = 0;
@@ -275,14 +421,15 @@
             htmlTable += '<td>' + item.name + '</td>';
             htmlTable += '<td>' + item.code + '</td>';
             htmlTable += '<td style="text-align:center">';
-            htmlTable += '<a onclick="DeleteControl(' + item.id + ',' + item.permissionId + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a> &nbsp;&nbsp;';
+            htmlTable += '<a onclick="DeleteControlPer(' + item.id + ',' + item.permissionId + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a> &nbsp;&nbsp;';
             htmlTable += '</td>';
             htmlTable += '</tr>';
         });
         $('#table-control tbody').html(htmlTable);
     }
 
-    function DeleteControl(conId, perId) {
+    //Xóa COntrol khỏi quền
+    function DeleteControlPer(conId, perId) {
         if (confirm("Bạn có muốn xóa bỏ Control này không?")) {
             var obj = {
                 id: conId,
@@ -297,7 +444,7 @@
                 data: JSON.stringify(obj),
                 success: function (res) {
                     LoadDataControlOnTable(res);
-                    toastr.success('Xóa control thành công', 'Thành công', { timeOut: 3000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
+                    toastr.success('Xóa control thành công', 'Thành công', { timeOut: 2000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
                 }
             });
         }
@@ -323,7 +470,10 @@
         $("#control-of-per-modal").modal("show");
         $("#per-of-role-modal").modal("hide");
     }
+    //Thao tác với Control-Permission end
 
+
+    //Thao tác với Role start
     //load dữ liêu quyền lên bảng danh sách các quyền của Nhóm quyền
     function LoadDataPerOnTable(res) {
         var htmlTable = "";
@@ -391,11 +541,12 @@
                 success: function (res) {
                     LoadDataPerOnTable(res);
                     LoadDataForComboPer(roleId);
-                    toastr.success('Loại bỏ Quyền khỏi Nhóm quyền thành công', 'Thành công', { timeOut: 3000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
+                    toastr.success('Loại bỏ Quyền khỏi Nhóm quyền thành công', 'Thành công', { timeOut: 2000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
                 }
             });
         }
     }
+    //Thao tác với Role end
 
     $(document).ready(function () {
         //gán quyền cho nhóm quyền
@@ -413,7 +564,7 @@
                 success: function (res) {
                     LoadDataPerOnTable(res);
                     LoadDataForComboPer(roleId);
-                    toastr.success('Gán quyền thành công', 'Thành công', { timeOut: 3000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
+                    toastr.success('Gán quyền thành công', 'Thành công', { timeOut: 2000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
                 }
             });
         });
@@ -448,12 +599,40 @@
                 data: JSON.stringify(obj),
                 success: function (res) {
                     LoadDataControlOnTable(res);
-                    toastr.success('Gán control thành công', 'Thành công', { timeOut: 3000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
+                    toastr.success('Gán control thành công', 'Thành công', { timeOut: 2000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
+                }
+            });
+        })
+
+        //Thêm các Control cho Role
+        $("#btn-add-role-control").click(function () {
+            var roleId = $('#cur-control-role-id').val();
+            var controlId = $('#cbo-role-control').val();
+            if (controlId == 0) {
+                toastr.error('Vui lòng chọn Control cần gán cho Nhóm quyền này', 'Chưa chọn control', { timeOut: 2000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
+                return;
+            }
+
+            $.ajax({
+                url: "/Control/AssignControlForPer",
+                type: "POST",
+                data: { roleId: roleId, controlId: controlId },
+                success: function (res) {
+                    LoadDataControlRoleOnTable(res);
+                    toastr.success('Gán control thành công', 'Thành công', { timeOut: 2000, closeButton: true, progressBar: true, showMethod: 'fadeIn', hideMethod: 'hide' })
                 }
             });
 
+            LoadDataForComboRoleControl(roleId);
         })
 
+
     })
+
+
+
+
+
+
 
 </script>

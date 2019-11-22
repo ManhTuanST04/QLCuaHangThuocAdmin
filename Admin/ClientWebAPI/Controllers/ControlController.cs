@@ -58,5 +58,44 @@ namespace ClientWebAPI.Controllers
             List<ControlModel> lstControlPer = controlService.GetControlPer(baseAddress, $"control/getcontrolper?perId={controlModel.permissionId}");
             return Json(lstControlPer);
         }
+
+        //Role COntrol: Lấy các control của quyền load lên bảng
+        public ActionResult GetControlRole(int roleId)
+        {
+            IControlService controlService = new ControlService();
+            List<ControlModel> lstControlRole = controlService.GetControlRole(baseAddress, $"control/getcontrolforrole?roleId={roleId}&&x=1");
+            return Json(lstControlRole);
+        }
+
+        public ActionResult LoadDataForComboControlRole(int roleId)
+        {
+            IControlService controlService = new ControlService();
+
+            List<ControlModel> lstControlRole = controlService.GetControlRole(baseAddress, $"control/getcontrolforrole?roleId={roleId}&&x=1");
+            //Lay tat ca cac control
+            List<ControlModel> lstControlAll = controlService.GetAllControl(baseAddress, $"control/getallcontrol");
+
+            List<ControlModel> lstControlNotOfPer = lstControlAll.Where(n => !lstControlRole.Select(n1 => n1.id).Contains(n.id)).ToList();
+
+            return Json(lstControlNotOfPer);
+        }
+
+        public ActionResult AssignControlForPer(int roleId, int controlId)
+        {
+            IControlService controlService = new ControlService();
+            controlService.AssignControlForRole(baseAddress, $"control/assigncotrolforrole?roleId={roleId}&&controlId={controlId}");
+            List<ControlModel> lstControlRole = controlService.GetControlRole(baseAddress, $"control/getcontrolforrole?roleId={roleId}&&x=1");
+            return Json(lstControlRole);
+        }
+
+        public ActionResult DeleteControlForRole(int roleId, int controlId)
+        {
+            IControlService controlService = new ControlService();
+            controlService.DeleteControlForRole(baseAddress, $"control/deletecontrolforrole?roleId={roleId}&&controlId={controlId}");
+            List<ControlModel> lstControlRole = controlService.GetControlRole(baseAddress, $"control/getcontrolforrole?roleId={roleId}&&x=1");
+            return Json(lstControlRole);
+
+        }
+
     }
 }

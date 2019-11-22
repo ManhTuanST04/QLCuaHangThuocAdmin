@@ -30,5 +30,23 @@ namespace ClientWebAPI.ServiceImpl
             APIHelper.PostDataToAPIReturnDynamic<ControlModel>(apiBaseAddress, linkApi, data);
             return 1;
         }
+
+        //Quyền và control
+        public List<ControlModel> GetControlRole(string apiBaseAddress, string linkApi)
+        {
+            return APIHelper.GetDataFromAPI<List<ControlModel>>(apiBaseAddress, linkApi);
+        }
+
+        public int AssignControlForRole(string apiBaseAddress, string linkApi)
+        {
+            var res = APIHelper.GetDataFromAPI<int>(apiBaseAddress, linkApi);
+            return Convert.ToInt32(res);
+        }
+
+        public int DeleteControlForRole(string apiBaseAddress, string linkApi)
+        {
+            var res = APIHelper.GetDataFromAPI<int>(apiBaseAddress, linkApi);
+            return Convert.ToInt32(res);
+        }
     }
 }

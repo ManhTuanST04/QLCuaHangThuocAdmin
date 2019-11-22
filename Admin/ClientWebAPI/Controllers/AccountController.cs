@@ -128,7 +128,7 @@ namespace ClientWebAPI.Controllers
         }
 
         [HttpPost]
-        [RBACAuthorizeAttribute(Control = "DeleteXXX")]
+        [RBACAuthorizeAttribute(Control = "DeleteUser")]
         public ActionResult DeleteUser(int id)
         {
             try

@@ -14,5 +14,10 @@ namespace ClientWebAPI.IService
 
         int AddControlForPer(string apiBaseAddress, string linkApi, ControlModel data);
         int DeleteControlForPer(string apiBaseAddress, string linkApi, ControlModel data);
+
+        //
+        List<ControlModel> GetControlRole(string apiBaseAddress, string linkApi);
+        int AssignControlForRole(string apiBaseAddress, string linkApi);
+        int DeleteControlForRole(string apiBaseAddress, string linkApi);
     }
 }
