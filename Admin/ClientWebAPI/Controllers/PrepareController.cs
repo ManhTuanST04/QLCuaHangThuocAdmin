@@ -38,7 +38,6 @@ namespace ClientWebAPI.Controllers
                     Session["PERMISSION_USER"] = lstPer;
                     //Lấy các control của user và lưu vào Session
                     List<ControlModel> lstControl = accountService.GetControlUser(baseAddress, $"account/getcontroluser?userId={acc.id}");
-
                     Session["CONTROL_USER"] = lstControl;
 
                     log.Info("Đăng nhập thành công! user:" + acc.userName);

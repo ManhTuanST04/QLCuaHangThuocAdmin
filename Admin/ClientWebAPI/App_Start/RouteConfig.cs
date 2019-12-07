@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace ClientWebAPI
+namespace ClientWebAPI 
 {
     public class RouteConfig
     {
@@ -16,7 +16,8 @@ namespace ClientWebAPI
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Prepare", action = "Login", id = UrlParameter.Optional }
+                defaults: new { controller = "Prepare", action = "Login", id = UrlParameter.Optional },
+                new string[] { "ClientWebAPI.Controllers" }
             );
         }
     }

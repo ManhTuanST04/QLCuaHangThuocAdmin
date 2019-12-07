@@ -1,0 +1,120 @@
+﻿@using ClientWebAPI.Models
+@model IEnumerable<ProductModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ShoppingPage/Views/Shared/_LayoutClient.cshtml";
+}
+
+
+<div class="col-md-12">
+    <link href="Scripts/owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link href="Scripts/owl-carousel/owl.theme.css" rel="stylesheet" />
+    <script src="Scripts/owl-carousel/owl.carousel.min.js"></script>
+    <script src="app/services/productServices.js"></script>
+    <script src="app/controllers/productController.js"></script>
+
+    <section class="product-content clearfix">
+        <h1 class="product-title clearfix"><span>Sản phẩm</span></h1>
+        <nav class="navbar navbar-default product-filter">
+            <ul class="display">
+                <li id="grid" class="active grid"><a href="#" title="Grid"><i class="fa fa-th-large"></i></a></li>
+                <li id="list" class="list"><a href="#" title="List"><i class="fa fa-th-list"></i></a></li>
+            </ul>
+            <div class="limit">
+                <span>Sản phẩm/trang</span>
+                <select id="lblimit" name="lblimit" class="nb_item" onchange="window.location.href = this.options[this.selectedIndex].value">
+                    <option value="?limit=10">10</option>
+                    <option selected="selected" value="?limit=12">12</option>
+                    <option value="?limit=20">20</option>
+                    <option value="?limit=50">50</option>
+                    <option value="?limit=100">100</option>
+                    <option value="?limit=250">250</option>
+                    <option value="?limit=500">500</option>
+                </select>
+            </div>
+            <div class="sort">
+                <span>Sắp xếp</span>
+                <select class="selectProductSort" id="lbsort" onchange="window.location.href = this.options[this.selectedIndex].value">
+                    <option selected="selected" value="?sort=index&amp;order=asc">Mặc định</option>
+                    <option value="?sort=price&amp;order=asc">Gi&#225; tăng dần</option>
+                    <option value="?sort=price&amp;order=desc">Gi&#225; giảm dần</option>
+                    <option value="?sort=name&amp;order=asc">T&#234;n sản phẩm: A to Z</option>
+                    <option value="?sort=name&amp;order=desc">T&#234;n sản phẩm: Z to A</option>
+                </select>
+            </div>
+        </nav>
+        <div class="product-block product-grid row clearfix">
+            @foreach (var pro in Model)
+            {
+                <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
+                    <div class="product-item product-resize">
+                        <div class="image image-resize">
+                            <a href="/ShoppingPage/Product/ProductDetail?id=@pro.id" title="Sản phẩm">
+                                <img class="img-responsive" src="~/Areas/ShoppingPage/Content/Uploads/ImgProduct/@pro.Image"/>
+                            </a>
+                            <div class="new">Mới</div>
+                        </div>
+                        <div class="right-block">
+                            <h2 class="name">
+                                <a href="/ShoppingPage/Product/ProductDetail?id=@pro.id" title="Versace Man Fraiche By Gianni Versace">@pro.Name</a>
+                            </h2>
+                            <div class="price">
+                                <span class="price-new">@pro.Price.ToString("N0") &nbsp;₫</span>
+                            </div>
+                            <div class=" box-block-button learfix">
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="addtocart-button clearfix">
+                                    <a href="" onclick="AddToCart(@pro.id)" class="add-to-cart" id="add-to-cart">Thêm vào giỏ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="index2679.html?page=1" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="active"><a href="index2679.html?page=1">1</a></li>
+                <li><a href="index4658.html?page=2">2</a></li>
+                <li><a href="index9ba9.html?page=3">3</a></li>
+                <li>
+                    <a href="index9ba9.html?page=3" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<script>
+    $(document).ready(function () {
+        
+    });
+
+    function AddToCart(idSP) {
+        $.ajax({
+            url: "/GioHang/ThemVaoGioHang/",
+            type: "POST",
+            data: { idSP: idSP, soLuong : 1 },
+            success: function (res) {
+                alert("Đã thêm vào giỏ hàng");
+                $("#display-cart").html("Giỏ hàng (" + res + ")");
+            }
+        });
+        
+    }
+
+</script>

@@ -12,13 +12,14 @@ namespace ClientWebAPI.Models
 
         }
 
-        public ProductModel(int id, String name, int price, int weight, String color)
+        public ProductModel(int id, String name, int price, int weight, String color, String image)
         {
             this.id = id;
             this.Name = name;
             this.Price = price;
             this.Weight = weight;
             this.Color = color;
+            this.Image = image;
         }
 
         public int id { set; get; }
@@ -31,5 +32,6 @@ namespace ClientWebAPI.Models
 
         public string Color { set; get; }
 
+        public string Image { set; get; }
     }
 }

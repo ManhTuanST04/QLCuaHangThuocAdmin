@@ -17,7 +17,7 @@ namespace ClientWebAPI.Common
             //Lấy danh sách các quyền điều khiển của User
             List<ControlModel> lstUserControl = (List<ControlModel>)HttpContext.Current.Session["CONTROL_USER"];
             List<string> sLstUserControl = new List<string>();
-            if(lstUserControl.Count > 0)
+            if(lstUserControl != null && lstUserControl.Count > 0)
             {
                 foreach (ControlModel x in lstUserControl)
                 {
@@ -26,7 +26,7 @@ namespace ClientWebAPI.Common
                 }
             }
 
-            if (sLstUserControl.Count <= 0)
+            if (sLstUserControl.Count <= 0 )
             {
                 return false;
             }

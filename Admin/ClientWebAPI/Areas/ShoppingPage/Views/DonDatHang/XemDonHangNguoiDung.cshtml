@@ -1,0 +1,150 @@
+﻿@using ClientWebAPI.Models
+@model IEnumerable<DonDatHangModel>
+@{
+    ViewBag.Title = "XemDonHangNguoiDung";
+    Layout = "~/Areas/ShoppingPage/Views/Shared/_LayoutClient.cshtml";
+
+    int stt = 0;
+}
+
+<div class="cart-content">
+    <h1><span>Đơn đặt hàng của tôi</span></h1>
+
+    <div class="cart-block">
+        <div class="cart-info table-responsive">
+            <table class="table product-list">
+                <thead>
+                    <tr>
+                        <th>Stt</th>
+                        <th>Ngày Đặt</th>
+                        <th>Ngày Xuất</th>
+                        <th>Tình trạng đơn</th>
+                        <th>Tổng tiền</th>
+                        <th>Xem chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        stt++;
+                        <tr>
+                            <td class="des">
+                                <h2>@stt</h2>
+                            </td>
+                            <td class="des">
+                                @item.ngayDat
+                            </td>
+                            <td class="des">
+                                @if (item.ngayXuat.Year != 0001)
+                                {
+                                    @item.ngayXuat.Date
+                                }
+                            </td>
+                            <td class="des">
+                                @if (item.tinhTrangDon == 0)
+                                {
+                                    string status = "Chờ nhận hàng";
+                                    @status;
+                                }
+                                @if (item.tinhTrangDon == 1)
+                                {
+                                    string status = "Đã nhận hàng";
+                                    @status;
+                                }
+                            </td>
+                            <td class="des">
+                                @item.tongTien.ToString("N0") đ
+                            </td>
+                            <td class="remove">
+                                <a onclick="ChiTietDonHang(@item.id)">
+                                    <i class="glyphicon glyphicon-align-right"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ctdh-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="title-modal-role-control">Danh sách sản phẩm của đơn hàng</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Chi Tiết Đơn Hàng
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="table-ctdh">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:10%;">STT</th>
+                                                <th style="width:20%;">Tên Sản Phẩm</th>
+                                                <th style="width:10%;">Giá</th>
+                                                <th style="width:20%;">Ảnh</th>
+                                                <th style="width:10%;">Số Lượng</th>
+                                                <th style="width:20%;">Thành Tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ChiTietDonHang(idDH) {
+        $('#ctdh-modal').modal("show");
+
+        $.ajax({
+            url: "/DonDatHang/XemChiTietDonHang/",
+            type: "POST",
+            data: { idDH: idDH},
+            success: function (res) {
+                LoadDataCTDH(res);
+            }
+        });
+    }
+
+    function LoadDataCTDH(res) {
+        var htmlTable = "";
+        var i = 0;
+        $.each(res, function (key, item) {
+            i++;
+            htmlTable += '<tr class="odd gradeX">';
+            htmlTable += '<td>' + i + '</td>';
+            htmlTable += '<td>' + item.Name + '</td>';
+            htmlTable += '<td>' + item.Price + '</td>';
+            htmlTable += '<td><img class="img-responsive" src="/Areas/ShoppingPage/Content/Uploads/ImgProduct/'+item.Image+'" /></td>';
+            htmlTable += '<td>' + item.SoLuong + '</td>';
+            htmlTable += '<td>' + item.ThanhTien + '</td>';
+            htmlTable += '</tr>';
+        });
+        $('#table-ctdh tbody').html(htmlTable);
+    }
+
+</script>
