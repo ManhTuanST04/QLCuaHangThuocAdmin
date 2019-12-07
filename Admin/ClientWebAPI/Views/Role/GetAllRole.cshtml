@@ -81,7 +81,7 @@
         <div class="panel panel-default">
             <div class="panel-heading" style="display: list-item;font-weight: 700; height: 55px;">
                 <div style="float:left">Danh sách quyền</div>
-                <div style="float:right"><button class="btn btn-primary" id="openModal">Thêm Mới</button></div>
+                <div style="float:right"><a class="btn btn-primary" href="/Permission/ThemMoiQuyen">Thêm Mới</a></div>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -586,8 +586,8 @@
             }
 
             var obj = {
-                name: $('#txtCodeControl').val(),
-                code: $('#txtNameControl').val(),
+                name: $('#txtNameControl').val(),
+                code: $('#txtCodeControl').val(),
                 permissionId: $('#cur-control-id').val()
             }
 

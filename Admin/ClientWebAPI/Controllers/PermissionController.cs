@@ -64,5 +64,18 @@ namespace ClientWebAPI.Controllers
             return Json(lstPerRole);
         }
 
+        public ActionResult ThemMoiQuyen()
+        {
+            return View();
+        }
+
+        //Thêm mới quyền
+        [HttpPost]
+        public ActionResult ThemMoiQuyen(PermissionModel perModel)
+        {
+            IPermissionService perService = new PermissionService();
+            perService.AddNewPer(baseAddress, "permission/addnewper", perModel);
+            return RedirectToAction("GetAllRole", "Role");
+        }
     }
 }

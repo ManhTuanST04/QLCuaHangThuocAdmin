@@ -14,5 +14,7 @@ namespace ClientWebAPI.IService
 
         int AssignPerForRole(string apiBaseAddress, string linkApi);
         int RemovePerForRole(string apiBaseAddress, string linkApi);
+
+        int AddNewPer(string apiBaseAddress, string linkApi, PermissionModel perModel);
     }
 }

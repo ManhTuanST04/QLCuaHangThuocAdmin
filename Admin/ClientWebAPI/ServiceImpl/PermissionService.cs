@@ -32,5 +32,11 @@ namespace ClientWebAPI.ServiceImpl
             return Convert.ToInt32(res);
         }
 
+        public int AddNewPer(string apiBaseAddress, string linkApi, PermissionModel perModel)
+        {
+            var res = APIHelper.PostDataToAPIReturnDynamic(apiBaseAddress, linkApi, perModel);
+
+            return Convert.ToInt32(res);
+        }
     }
 }

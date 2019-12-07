@@ -167,8 +167,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ControlController.cs" />
+    <Compile Include="Controllers\DonDatHangController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\PrepareController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -178,6 +180,8 @@
     </Compile>
     <Compile Include="IService\IAccountService.cs" />
     <Compile Include="IService\IControlService.cs" />
+    <Compile Include="IService\IDonDatHangService.cs" />
+    <Compile Include="IService\IKhachHangService.cs" />
     <Compile Include="IService\IPermissionService.cs" />
     <Compile Include="IService\IProductService.cs" />
     <Compile Include="IService\IRoleSevice.cs" />
@@ -187,6 +191,7 @@
     <Compile Include="Models\ControlModel.cs" />
     <Compile Include="Models\DonDatHangModel.cs" />
     <Compile Include="Models\GioHangModel.cs" />
+    <Compile Include="Models\KhachHangModel2.cs" />
     <Compile Include="Models\KhachHangModel.cs" />
     <Compile Include="Models\PermissionModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
@@ -195,6 +200,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceImpl\AccountService.cs" />
     <Compile Include="ServiceImpl\ControlService.cs" />
+    <Compile Include="ServiceImpl\DonDatHangService.cs" />
+    <Compile Include="ServiceImpl\KhachHangService.cs" />
     <Compile Include="ServiceImpl\PermissionService.cs" />
     <Compile Include="ServiceImpl\ProductService.cs" />
     <Compile Include="ServiceImpl\RoleService.cs" />
@@ -480,6 +487,11 @@
     <Content Include="Views\Role\GetAllRole.cshtml" />
     <Content Include="Views\Role\AddRole.cshtml" />
     <Content Include="Views\Role\UpdateRole.cshtml" />
+    <Content Include="Views\DonDatHang\DanhSachDonHang.cshtml" />
+    <Content Include="Views\Permission\ThemMoiQuyen.cshtml" />
+    <Content Include="Views\KhachHang\DanhSachKhachHang.cshtml" />
+    <Content Include="Views\KhachHang\ChuanBiSuaKH.cshtml" />
+    <Content Include="Views\KhachHang\ThemKhachHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -490,7 +502,6 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Control\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\Permission\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

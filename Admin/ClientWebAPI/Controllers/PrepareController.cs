@@ -38,7 +38,9 @@ namespace ClientWebAPI.Controllers
                     Session["PERMISSION_USER"] = lstPer;
                     //Lấy các control của user và lưu vào Session
                     List<ControlModel> lstControl = accountService.GetControlUser(baseAddress, $"account/getcontroluser?userId={acc.id}");
-                    Session["CONTROL_USER"] = lstControl;
+                    List<string> lstCodeControl = lstControl.Select(x => x.code).ToList();
+                    lstCodeControl = lstCodeControl.Distinct().ToList();
+                    Session["CONTROL_USER"] = lstCodeControl;
 
                     log.Info("Đăng nhập thành công! user:" + acc.userName);
                     log4net.GlobalContext.Properties["currentUser"] = acc.userName;

@@ -1,0 +1,64 @@
+﻿@using ClientWebAPI.Models
+@model KhachHangModel
+@{
+    ViewBag.Title = "ChuanBiSuaKH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Sửa Khách Hàng</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Điền đầy đủ các trường thông tin có gắn dấu (*)
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" action="SuaKhachHang">
+                            <div class="form-group">
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                            </div>
+                            <input name="id" value="@Model.id" hidden/>
+                            <div class="form-group">
+                                <label>Tên Khách Hàng (*)</label>
+                                <input class="form-control" name="ten" placeholder="tên" value="@Model.Ten">
+                            </div>
+                            <div class="form-group">
+                                <label>Mật Khẩu (*)</label>
+                                <input class="form-control" name="matKhau" placeholder="mật khẩu" value="@Model.MatKhau">
+                            </div>
+                            <div class="form-group">
+                                <label>Điện Thoại (*)</label>
+                                <input class="form-control" name="dienThoai" placeholder="điện thoại" value="@Model.DienThoai">
+                            </div>
+                            <div class="form-group">
+                                <label>Email (*)</label>
+                                <input class="form-control" type="email" name="email" placeholder="email" value="@Model.Email">
+                            </div>
+                            <div class="form-group">
+                                <label>Địa Chỉ (*)</label>
+                                <input class="form-control" name="diaChi" placeholder="địa chỉ" value="@Model.DiaChi">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Sửa</button>
+                            <button type="reset" class="btn btn-danger">Hủy bỏ</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->

@@ -114,7 +114,7 @@ namespace ClientWebAPI.Areas.ShoppingPage.Controllers
             if (cart != null)
             {
                 list.Clear();
-                return RedirectToAction("Index", "Cart");
+                return RedirectToAction("XemGioHang", "GioHang");
             }
             return View();
         }
@@ -141,9 +141,9 @@ namespace ClientWebAPI.Areas.ShoppingPage.Controllers
             ddhModel.tinhTrangDon = 0;
             ddhModel.tongTien = cart.Sum(x => x.TongTien);
 
+            //Thêm đơn hàng và lấy ra id của đơn để thêm chi tiết
             int idDH = DonDatHangDAO.ThemDonHang(baseAddress, $"donhang/themdonhang", ddhModel);
 
-            
             List<ChiTietDonHangModel> ctdh = new List<ChiTietDonHangModel>();
             foreach(GioHangModel item in cart)
             {
@@ -158,7 +158,10 @@ namespace ClientWebAPI.Areas.ShoppingPage.Controllers
             return RedirectToAction("XemDonHangNguoiDung", "DonDatHang");
         }
 
-
+        /// <summary>
+        /// Nếu đăng nhập rồi thì mới cho xác nhận mua hàng
+        /// </summary>
+        /// <returns></returns>
         public ActionResult KiemTraDangNhap()
         {
             KhachHangModel kh = (KhachHangModel)Session["KhachHang"];

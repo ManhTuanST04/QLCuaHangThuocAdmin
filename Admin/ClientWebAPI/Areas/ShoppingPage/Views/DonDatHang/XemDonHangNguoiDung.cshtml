@@ -51,6 +51,11 @@
                                     string status = "Đã nhận hàng";
                                     @status;
                                 }
+                                @if (item.tinhTrangDon == -1)
+                                {
+                                    string status = "Đã bị hủy";
+                                    @status;
+                                }
                             </td>
                             <td class="des">
                                 @item.tongTien.ToString("N0") đ

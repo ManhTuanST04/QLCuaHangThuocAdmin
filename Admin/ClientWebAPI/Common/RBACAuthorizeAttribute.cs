@@ -15,21 +15,24 @@ namespace ClientWebAPI.Common
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             //Lấy danh sách các quyền điều khiển của User
-            List<ControlModel> lstUserControl = (List<ControlModel>)HttpContext.Current.Session["CONTROL_USER"];
-            List<string> sLstUserControl = new List<string>();
-            if(lstUserControl != null && lstUserControl.Count > 0)
-            {
-                foreach (ControlModel x in lstUserControl)
-                {
-                    string control = x.code.ToUpper().ToString().Trim();
-                    sLstUserControl.Add(control);
-                }
-            }
+            List<string> sLstUserControl = (List<string>)HttpContext.Current.Session["CONTROL_USER"];
 
-            if (sLstUserControl.Count <= 0 )
-            {
-                return false;
-            }
+            List<string> sLstUserControlUpper = sLstUserControl.Select(x => x.ToUpper().ToString()).ToList();
+            //List<ControlModel> lstUserControl = (List<ControlModel>)HttpContext.Current.Session["CONTROL_USER"];
+            //List<string> sLstUserControl = new List<string>();
+            //if(lstUserControl != null && lstUserControl.Count > 0)
+            //{
+            //    foreach (ControlModel x in lstUserControl)
+            //    {
+            //        string control = x.code.ToUpper().ToString().Trim();
+            //        sLstUserControl.Add(control);
+            //    }
+            //}
+
+            //if (sLstUserControl.Count <= 0 )
+            //{
+            //    return false;
+            //}
 
             //List này chứa các quyền có thể truy cập vào Action trong Controller
             List<string> lstActionControl = new List<string>(Control.Split(",".ToCharArray()));
@@ -37,7 +40,7 @@ namespace ClientWebAPI.Common
 
             //Kiểm tra các quyền User được cấp và quyền truy cập Acction
             //Nếu có thì mới được truy cập
-            List<string> per = sLstUserControl.Intersect(lstActionControl).ToList<String>();
+            List<string> per = sLstUserControlUpper.Intersect(lstActionControl).ToList<String>();
             if (per.Count > 0)
             {
                 return true;
