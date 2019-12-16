@@ -1,0 +1,3 @@
+((null)) 2019-12-15 22:15:34,522 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-15 22:15:36,917 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+((null)) 2019-12-15 22:59:50,466 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 

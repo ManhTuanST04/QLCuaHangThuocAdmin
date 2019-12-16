@@ -16,5 +16,25 @@ namespace ClientWebAPI.ServiceImpl
             lst = APIHelper.GetDataFromAPI<List<ProductModel>>(apiBaseAddress, linkApi);
             return lst;
         }
+
+        public int AddProduct(string apiBaseAddress, string linkApi, ProductModel2 pro)
+        {
+            var res = APIHelper.PostDataToAPIReturnDynamic(apiBaseAddress, linkApi, pro);
+            if (res == null)
+            {
+                res = 0;
+            }
+            return Convert.ToInt32(res);
+        }
+
+        public int UpdateProduct(string apiBaseAddress, string linkApi, ProductModel2 pro)
+        {
+            var res = APIHelper.PostDataToAPIReturnDynamic(apiBaseAddress, linkApi, pro);
+            if (res == null)
+            {
+                res = 0;
+            }
+            return Convert.ToInt32(res);
+        }
     }
 }

@@ -10,5 +10,8 @@ namespace ClientWebAPI.IService
     interface IProductService
     {
         List<ProductModel> GetListProduct(string apiBaseAddress, string linkApi);
+
+        int AddProduct(string apiBaseAddress, string linkApi, ProductModel2 pro);
+        int UpdateProduct(string apiBaseAddress, string linkApi, ProductModel2 pro);
     }
 }

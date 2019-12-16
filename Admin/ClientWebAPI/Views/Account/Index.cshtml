@@ -6,6 +6,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     AccountModel model = (AccountModel)Session["user"];
     string name = model.name;
+
+    List<string> lstUserControl = (List<string>)Session["CONTROL_USER"];
 }
     <div class="row">
         <div class="col-lg-12">

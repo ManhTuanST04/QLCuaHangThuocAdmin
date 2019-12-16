@@ -71,10 +71,16 @@
                                     </td>
                                     <td class="center">@ddh.tongTien.ToString("N0") đ</td>
                                     <td>
-                                        <a href="/DonDatHang/XacNhanDonHang?idDDh=@ddh.id" onclick="confirm('Xác nhận đơn hàng này và tiến hành vận chuyển sản phẩm?')">Xác Nhận <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> |
-                                        <a onclick="ChiTietDonHang(@ddh.id, @ddh.idKH)">Chi Tiết <i class="fa fa-bolt" aria-hidden="true"></i></a> |
-                                        <a href="/DonDatHang/HuyDonHang?idDDh=@ddh.id" onclick="confirm('Hủy bỏ đơn hàng này?')">Hủy Đơn <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        @if (ddh.tinhTrangDon == 0)
+                                        {
+                                            <a href="/DonDatHang/XacNhanDonHang?idDDh=@ddh.id" onclick="confirm('Xác nhận đơn hàng này và tiến hành vận chuyển sản phẩm?')">Xác Nhận <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        }
+                                        | <a onclick="ChiTietDonHang(@ddh.id, @ddh.idKH)">Chi Tiết <i class="fa fa-bolt" aria-hidden="true"></i></a> |
 
+                                        @if (ddh.tinhTrangDon == 0)
+                                        {
+                                            <a href="/DonDatHang/HuyDonHang?idDDh=@ddh.id" onclick="confirm('Hủy bỏ đơn hàng này?')">Hủy Đơn <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        }
                                     </td>
                                 </tr>
                             }

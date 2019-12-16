@@ -10,7 +10,7 @@
         <div class="panel panel-default">
             <div class="panel-heading" style="display: list-item;font-weight: 700; height: 55px;">
                 <div style="float:left">Quản lý sản phẩm</div>
-                <div style="float:right"><button class="btn btn-primary" id="openModal">Thêm Mới</button></div>
+                <div style="float:right"><a class="btn btn-primary" href="/Product/PrepareAddProduct">Thêm Mới</a></div>
             </div>
             <div class="form-group">
                 @Html.AntiForgeryToken()
@@ -27,6 +27,7 @@
                                 <th>Giá</th>
                                 <th>Cân Nặng</th>
                                 <th>Màu Sắc</th>
+                                <th>Ảnh</th>
                                 <th style="width:10%">Chức năng</th>
                             </tr>
                         </thead>
@@ -41,8 +42,9 @@
                                         <td>@product.Price</td>
                                         <td>@product.Weight</td>
                                         <td class="center">@product.Color</td>
+                                        <td style="text-align:center"> <img width="100" height="100" src="~/Areas/ShoppingPage/Content/Uploads/ImgProduct/@product.Image"/> </td>
                                         <td>
-                                            <a onclick=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
+                                            <a href="/Product/PrepareUpdateProduct?idSP=@product.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
                                             <a onclick=""><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>

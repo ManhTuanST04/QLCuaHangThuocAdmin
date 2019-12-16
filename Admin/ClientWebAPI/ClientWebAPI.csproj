@@ -194,6 +194,7 @@
     <Compile Include="Models\KhachHangModel2.cs" />
     <Compile Include="Models\KhachHangModel.cs" />
     <Compile Include="Models\PermissionModel.cs" />
+    <Compile Include="Models\ProductModel2.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\UserRoleModel.cs" />
@@ -492,6 +493,8 @@
     <Content Include="Views\KhachHang\DanhSachKhachHang.cshtml" />
     <Content Include="Views\KhachHang\ChuanBiSuaKH.cshtml" />
     <Content Include="Views\KhachHang\ThemKhachHang.cshtml" />
+    <Content Include="Views\Product\PrepareAddProduct.cshtml" />
+    <Content Include="Views\Product\PrepareUpdateProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

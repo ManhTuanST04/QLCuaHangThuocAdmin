@@ -29,6 +29,9 @@
             <h4>1. Địa chỉ thanh toán và giao hàng</h4>
             <div class="step-preview clearfix">
                 <h2 class="title">Thông tin thanh toán</h2>
+                <div class="edit-button">
+                    <a href="#" id="btn-edit-kh" onclick="ChuanBiSuaKhachHang()"><i class="fa fa-pencil-square-o" style="color:blue"></i> Sửa thông tin</a>
+                </div>
                 <div class="info-user">
                     <label>Người nhận:<span>@Model.Ten</span></label>
                     <label>Điện thoại:<span>@Model.DienThoai</span></label>
@@ -36,12 +39,10 @@
                     <label>Địa chỉ:<span></span>@Model.DiaChi</label>
                     <label>Quận/Huyện:<span>Bắc Từ Liêm</span></label>
                     <label>Thành Phố:<span>Hà Nội</span></label>
-                    <div class="edit-button">
-                        <a href="#modalAccount"><i class="fa fa-pencil-square-o"></i></a>
-                    </div>
+
                 </div>
-                
-                
+
+
             </div>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 payment-step step3">
@@ -89,7 +90,7 @@
                         }
                     </div>
                     <div class="total-price">
-                        Thành tiền  <label> @cart.Sum(x=>x.TongTien).ToString("N0") ₫</label>
+                        Thành tiền  <label> @cart.Sum(x => x.TongTien).ToString("N0") ₫</label>
                     </div>
                     <div class="shiping-price">
                         Phí vận chuyển  <label>0 ₫</label>
@@ -115,6 +116,109 @@
     </form>
 </div>
 
+<div class="modal fade" id="sua-kh-modal" role="dialog" style="z-index:10000">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="title-modal-role-control">Thông tin nhận hàng</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Điền đầy đủ các trường thông tin có gắn dấu (*)
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form>
+                                            <input id="id" hidden />
+                                            <div class="form-group">
+                                                <label>Tên Khách Hàng (*)</label>
+                                                <input class="form-control" id="ten" placeholder="tên">
+                                            </div>
+                                            <input id="matkhau" placeholder="mật khẩu" hidden/>
+                                            <div class="form-group">
+                                                <label>Điện Thoại (*)</label>
+                                                <input class="form-control" id="dienthoai" placeholder="điện thoại">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input class="form-control" type="email" id="email" placeholder="email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Địa Chỉ (*)</label>
+                                                <input class="form-control" id="diachi" placeholder="địa chỉ">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- /.row (nested) -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" id="btnSua" onclick="SuaKhachHang()">Sửa</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+    });
+
+    function ChuanBiSuaKhachHang() {
+        $.ajax({
+            url: "/ShoppingPage/KhachHang/ChuanBiSuaKhachHang/",
+            type: "POST",
+            data: {},
+            success: function (res) {
+                $("#id").val(res.id);
+                $("#ten").val(res.Ten);
+                $("#matkhau").val(res.MatKhau);
+                $("#dienthoai").val(res.DienThoai);
+                $("#email").val(res.Email);
+                $("#diachi").val(res.DiaChi);
+            }
+        });
+        $("#sua-kh-modal").modal("show");
+    }
+
+    function SuaKhachHang() {
+        var obj = {
+            id: $("#id").val(),
+            ten: $("#ten").val(),
+            matKhau: $("#matkhau").val(),
+            dienThoai : $("#dienthoai").val(),
+            email : $("#email").val(),
+            diaChi : $("#diachi").val(),
+        }
+
+        $.ajax({
+            url: "/ShoppingPage/KhachHang/SuaKhachHang/",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(obj),
+            success: function (res) {
+                if (res == 1) {
+                    alert("Đã cập nhật thông tin!");
+                    document.location = "/ShoppingPage/GioHang/DatHang";
+                }
+            }
+        });
+    }
 
 
+</script>
 

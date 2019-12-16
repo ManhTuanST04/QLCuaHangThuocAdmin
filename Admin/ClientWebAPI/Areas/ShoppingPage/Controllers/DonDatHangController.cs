@@ -15,7 +15,16 @@ namespace ClientWebAPI.Areas.ShoppingPage.Controllers
         // GET: ShoppingPage/DonDatHang
         public ActionResult XemDonHangNguoiDung()
         {
-            int idKH = ((KhachHangModel)Session["KhachHang"]).id;
+            int idKH = 0;
+            if(Session["KhachHang"] != null)
+            {
+                idKH = ((KhachHangModel)Session["KhachHang"]).id;
+            }
+            else
+            {
+                return RedirectToAction("DangNhap", "KhachHang");
+            }
+            
             List<DonDatHangModel> res = DonDatHangDAO.XemDonHangNguoiDung(baseAddress, $"donhang/dsdhuser?idUser={idKH}");
             return View(res);
         }
