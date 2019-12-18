@@ -4,13 +4,18 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<string> lstUserControl = (List<string>)Session["CONTROL_USER"];
 }
 
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading" style="display: list-item;font-weight: 700; height: 55px;">
                 <div style="float:left">Quản lý sản phẩm</div>
-                <div style="float:right"><a class="btn btn-primary" href="/Product/PrepareAddProduct">Thêm Mới</a></div>
+                @if (lstUserControl.SingleOrDefault(x => x == "AddProduct") != null)
+                {
+                    <div style="float:right"><a class="btn btn-primary" href="/Product/PrepareAddProduct">Thêm Mới</a></div>
+                }
             </div>
             <div class="form-group">
                 @Html.AntiForgeryToken()
@@ -44,8 +49,16 @@
                                         <td class="center">@product.Color</td>
                                         <td style="text-align:center"> <img width="100" height="100" src="~/Areas/ShoppingPage/Content/Uploads/ImgProduct/@product.Image"/> </td>
                                         <td>
-                                            <a href="/Product/PrepareUpdateProduct?idSP=@product.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
-                                            <a onclick=""><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            @if (lstUserControl.SingleOrDefault(x => x == "EditProduct") != null)
+                                            {
+                                                <a href="/Product/PrepareUpdateProduct?idSP=@product.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            }
+                                            |
+                                            @if (lstUserControl.SingleOrDefault(x => x == "DeleteProduct") != null)
+                                            {
+                                                <a onclick=""><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            }
+
                                         </td>
                                     </tr>
                                 }

@@ -1,4 +1,5 @@
-﻿using ClientWebAPI.IService;
+﻿using ClientWebAPI.Common;
+using ClientWebAPI.IService;
 using ClientWebAPI.Models;
 using ClientWebAPI.ServiceImpl;
 using System;
@@ -14,6 +15,7 @@ namespace ClientWebAPI.Controllers
     {
         public string baseAddress = ConfigurationManager.AppSettings["APIBaseAddress"];
         // GET: DonDatHang
+        [RBACAuthorizeAttribute(Control = "XemDonHang")]
         public ActionResult DanhSachDonHang()
         {
             IDonDatHangService service = new DonDatHangService();
@@ -21,6 +23,7 @@ namespace ClientWebAPI.Controllers
             return View(lst);
         }
 
+        [RBACAuthorizeAttribute(Control = "ChiTietDon")]
         public ActionResult ChiTietDonHang(int idDDH)
         {
             IDonDatHangService serviceDDH = new DonDatHangService();
@@ -28,6 +31,7 @@ namespace ClientWebAPI.Controllers
             return Json(lst);
         }
 
+        [RBACAuthorizeAttribute(Control = "XacNhanDon")]
         public ActionResult XacNhanDonHang(int idDDH)
         {
             IDonDatHangService serviceDDH = new DonDatHangService();
@@ -35,6 +39,7 @@ namespace ClientWebAPI.Controllers
             return RedirectToAction("DanhSachDonHang");
         }
 
+        [RBACAuthorizeAttribute(Control = "HuyDon")]
         public ActionResult HuyDonHang(int idDDH)
         {
             IDonDatHangService serviceDDH = new DonDatHangService();

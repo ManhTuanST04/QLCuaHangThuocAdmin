@@ -39,12 +39,14 @@ namespace ClientWebAPI.Controllers
             }
         }
 
+        [RBACAuthorizeAttribute(Control = "AddProduct")]
         public ActionResult PrepareAddProduct()
         {
             return View();
         }
 
         [HttpPost]
+        [RBACAuthorizeAttribute(Control = "AddProduct")]
         public ActionResult AddProduct(HttpPostedFileBase imgPro, ProductModel2 product)
         {
             if (imgPro.ContentLength > 0)
@@ -62,6 +64,7 @@ namespace ClientWebAPI.Controllers
             return RedirectToAction("Index");
         }
 
+        [RBACAuthorizeAttribute(Control = "EditProduct")]
         public ActionResult PrepareUpdateProduct(int idSP)
         {
             string linkAPI = $"product/productdetail?id={idSP}";
@@ -70,6 +73,7 @@ namespace ClientWebAPI.Controllers
         }
 
         [HttpPost]
+        [RBACAuthorizeAttribute(Control = "EditProduct")]
         public ActionResult UpdateProduct(HttpPostedFileBase imgPro, ProductModel2 product)
         {
             if(imgPro != null)

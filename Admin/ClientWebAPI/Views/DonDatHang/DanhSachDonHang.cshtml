@@ -4,6 +4,8 @@
     ViewBag.Title = "DanhSachDonHang";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int stt = 0;
+
+    List<string> lstUserControl = (List<string>)Session["CONTROL_USER"];
 }
 
 <div class="row">
@@ -45,11 +47,11 @@
                                 stt++;
                                 <tr class="odd gradeX">
                                     <td>@stt</td>
-                                    <td>@ddh.ngayDat</td>
+                                    <td>@ddh.ngayDat.ToString("dd-MM-yyyy")</td>
                                     <td>
                                         @if (ddh.ngayXuat.Year != 0001)
                                         {
-                                            @ddh.ngayXuat.Date
+                                            @ddh.ngayXuat.Date.ToString("dd-MM-yyyy")
                                         }
                                     </td>
                                     <td>
@@ -73,13 +75,23 @@
                                     <td>
                                         @if (ddh.tinhTrangDon == 0)
                                         {
-                                            <a href="/DonDatHang/XacNhanDonHang?idDDh=@ddh.id" onclick="confirm('Xác nhận đơn hàng này và tiến hành vận chuyển sản phẩm?')">Xác Nhận <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            if (lstUserControl.SingleOrDefault(x => x == "XacNhanDon") != null)
+                                            {
+                                                <a href="#" onclick="XacNhanDonHang(@ddh.id)">Xác Nhận <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            }
                                         }
-                                        | <a onclick="ChiTietDonHang(@ddh.id, @ddh.idKH)">Chi Tiết <i class="fa fa-bolt" aria-hidden="true"></i></a> |
-
+                                        |
+                                        @if (lstUserControl.SingleOrDefault(x => x == "ChiTietDon") != null)
+                                        {
+                                            <a onclick="ChiTietDonHang(@ddh.id, @ddh.idKH)">Chi Tiết <i class="fa fa-bolt" aria-hidden="true"></i></a>
+                                        }
+                                        |
                                         @if (ddh.tinhTrangDon == 0)
                                         {
-                                            <a href="/DonDatHang/HuyDonHang?idDDh=@ddh.id" onclick="confirm('Hủy bỏ đơn hàng này?')">Hủy Đơn <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            if (lstUserControl.SingleOrDefault(x => x == "HuyDon") != null)
+                                            {
+                                                <a href="#" onclick="HuyDonHang(@ddh.id)">Hủy Đơn <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            }
                                         }
                                     </td>
                                 </tr>
@@ -150,6 +162,18 @@
 </div>
 
 <script>
+    function XacNhanDonHang(idDH) {
+        if (confirm('Xác nhận đơn hàng và tiến hành chuyển hàng?')) {
+            document.location = '/DonDatHang/XacNhanDonHang?idDDh=' + idDH;
+        }
+    }
+
+    function HuyDonHang(idDH) {
+        if (confirm('Xác nhận hủy đơn hàng này?')) {
+            document.location = '/DonDatHang/XacNhanDonHang?idDDh=' + idDH;
+        }
+    }
+
     function ChiTietDonHang(idDH, idKH) {
         $.ajax({
             url: "/KhachHang/GetKhachHangById/",

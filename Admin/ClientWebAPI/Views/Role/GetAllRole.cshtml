@@ -6,6 +6,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     List<PermissionModel> lstPer = (List<PermissionModel>)ViewBag.LIST_ALL_PER;
+
+    List<string> lstUserControl = (List<string>)Session["CONTROL_USER"];
 }
 
 <div class="row">
@@ -20,7 +22,11 @@
         <div class="panel panel-default">
             <div class="panel-heading" style="display: list-item;font-weight: 700; height: 55px;">
                 <div style="float:left">Danh sách nhóm quyền</div>
-                <div style="float:right"><a class="btn btn-primary" href="/Role/AddRole">Thêm Mới</a></div>
+                @if (lstUserControl.SingleOrDefault(x => x == "AddRole") != null)
+                {
+                    <div style="float:right"><a class="btn btn-primary" href="/Role/AddRole">Thêm Mới</a></div>
+                }
+
             </div>
             <div class="form-group">
                 @Html.AntiForgeryToken()
@@ -35,8 +41,8 @@
                                 <th style="width:10%;">Id</th>
                                 <th style="width:40%; ">Tên Nhóm Quyền</th>
                                 <th style="width:30%; ">Mã Nhóm Quyền</th>
-                                <th style="width:10%; ">Sửa - Xóa</th>
-                                <th style="text-align:center;width:10%;">Role - Control</th>
+                                <th style="width:10%; " class="text-center">Sửa - Xóa</th>
+                                <th style="text-align:center;width:10%;" class="text-center">Role - Control</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,14 +54,27 @@
                                         <td>@role.id</td>
                                         <td>@role.name</td>
                                         <td>@role.code</td>
-                                        <td>
-                                            <a href="/Role/UpdateRole?roleId=@role.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
-                                            <a onclick="confirm('Bạn có muốn xóa nhóm quyền này không?')" href="/Role/DeleteRole?roleId=@role.id"><i class="fa fa-trash-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
-
+                                        <td class="text-center">
+                                            @if (lstUserControl.SingleOrDefault(x => x == "EditRole") != null)
+                                            {
+                                                <a href="/Role/UpdateRole?roleId=@role.id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            }
+                                            |
+                                            @if (lstUserControl.SingleOrDefault(x => x == "DeleteRole") != null)
+                                            {
+                                                <a onclick="confirm('Bạn có muốn xóa nhóm quyền này không?')" href="/Role/DeleteRole?roleId=@role.id"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            }
                                         </td>
                                         <td style="text-align:center">
-                                            <a onclick="GetPermissionOfRole(@role.id, '@role.name')"><i class="fa fa-shield" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                                            <a onclick="GetControlForRole(@role.id, '@role.name')"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+                                            @if (lstUserControl.SingleOrDefault(x => x == "AssignPerForRole") != null)
+                                            {
+                                                <a onclick="GetPermissionOfRole(@role.id, '@role.name')"><i class="fa fa-shield" aria-hidden="true"></i></a>
+                                            }
+                                            |
+                                            @if (lstUserControl.SingleOrDefault(x => x == "AssignControlForRole") != null)
+                                            {
+                                                <a onclick="GetControlForRole(@role.id, '@role.name')"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+                                            }
                                         </td>
                                     </tr>
                                 }
@@ -81,7 +100,10 @@
         <div class="panel panel-default">
             <div class="panel-heading" style="display: list-item;font-weight: 700; height: 55px;">
                 <div style="float:left">Danh sách quyền</div>
-                <div style="float:right"><a class="btn btn-primary" href="/Permission/ThemMoiQuyen">Thêm Mới</a></div>
+                @if (lstUserControl.SingleOrDefault(x => x == "AddPer") != null)
+                {
+                    <div style="float:right"><a class="btn btn-primary" href="/Permission/ThemMoiQuyen">Thêm Mới</a></div>
+                }
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -92,7 +114,7 @@
                                 <th style="width:10%;">id</th>
                                 <th style="width:40%;">Tên quyền</th>
                                 <th style="width:30%;">Mã quyền</th>
-                                <th style="width:10%;">Chức Năng</th>
+                                <th style="width:10%;" class="text-center">Chức Năng</th>
                                 <th style="text-align:center;width:10%;">Control Per</th>
                             </tr>
                         </thead>
@@ -105,12 +127,22 @@
                                         <td>@per.id</td>
                                         <td>@per.name</td>
                                         <td>@per.code</td>
-                                        <td>
-                                            <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
-                                            <a onclick=""><i class="fa fa-trash-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
+                                        <td class="text-center">
+                                            @if (lstUserControl.SingleOrDefault(x => x == "EditPer") != null)
+                                            {
+                                                <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            }
+                                            |
+                                            @if (lstUserControl.SingleOrDefault(x => x == "DeletePer") != null)
+                                            {
+                                                <a onclick=""><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            }
                                         </td>
-                                        <td style="text-align:center">
-                                            <a onclick=" LoadControlForPer(@per.id)"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+                                        <td class="text-center">
+                                            @if (lstUserControl.SingleOrDefault(x => x == "AssignControlForRole") != null)
+                                            {
+                                                <a onclick=" LoadControlForPer(@per.id)"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+                                            }
                                         </td>
                                     </tr>
                                 }
@@ -356,7 +388,7 @@
             htmlTable += '<td>' + item.name + '</td>';
             htmlTable += '<td>' + item.code + '</td>';
             htmlTable += '<td style="text-align:center">';
-            htmlTable += '<a onclick="DeleteControlRole(' + item.id +')"><i class="fa fa-trash-o" aria-hidden="true"></i></a> &nbsp;&nbsp;';
+            htmlTable += '<a onclick="DeleteControlRole(' + item.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a> &nbsp;&nbsp;';
             htmlTable += '</td>';
             htmlTable += '</tr>';
         });
@@ -382,15 +414,15 @@
         $("#control-of-role-modal").modal("show");
     }
 
-    //Xóa COntrol khỏi Nhóm quyền 
+    //Xóa COntrol khỏi Nhóm quyền
     function DeleteControlRole(conId) {
         var roleId = $('#cur-control-role-id').val();
         var roleName = $('#cur-control-role-name').val();
-        
-        if (confirm("Bạn có muốn xóa bỏ Control này khỏi nhóm quyền "+roleName+" không?")) {
+
+        if (confirm("Bạn có muốn xóa bỏ Control này khỏi nhóm quyền " + roleName + " không?")) {
             var obj = {
                 roleId: roleId,
-                controlId: conId          
+                controlId: conId
             }
 
             $.ajax({
@@ -570,9 +602,9 @@
         });
 
         //Modal Control tắt thì hiện modal Per lên
-        $('#control-of-per-modal').on('hide.bs.modal', function (e) {
-            $("#per-of-role-modal").modal("show");
-        })
+        //$('#control-of-per-modal').on('hide.bs.modal', function (e) {
+        //    $("#per-of-role-modal").modal("show");
+        //})
 
         //Thêm control cho quyền
         $('#btn-add-control').click(function () {

@@ -95,8 +95,8 @@
     function UpdateSoLuong(idSP, SL, event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
-            var soluong = $('#product-count').val();
-            if (soluong <= 0 || soluong >= 10) {
+            //var soluong = $('#product-count').val();
+            if (SL == '' || SL <= 0 || SL >= 10) {
                 alert("Số lượng phải lớn hơn 0 và nhỏ hơn 10");
                 return;
             }

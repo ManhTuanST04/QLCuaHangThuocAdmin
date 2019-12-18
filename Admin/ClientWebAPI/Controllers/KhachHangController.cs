@@ -1,4 +1,5 @@
-﻿using ClientWebAPI.IService;
+﻿using ClientWebAPI.Common;
+using ClientWebAPI.IService;
 using ClientWebAPI.Models;
 using ClientWebAPI.ServiceImpl;
 using System;
@@ -14,6 +15,7 @@ namespace ClientWebAPI.Controllers
     {
         public string baseAddress = ConfigurationManager.AppSettings["APIBaseAddress"];
 
+        [RBACAuthorizeAttribute(Control = "XemKhachHang")]
         public ActionResult DanhSachKhachHang()
         {
             IKhachHangService serviceKH = new KhachHangService();
@@ -22,6 +24,7 @@ namespace ClientWebAPI.Controllers
             return View(khModel);
         }
 
+        [RBACAuthorizeAttribute(Control = "XemKhachHang")]
         public ActionResult GetKhachHangById(int idKH)
         {
             IKhachHangService serviceKH = new KhachHangService();
@@ -30,12 +33,14 @@ namespace ClientWebAPI.Controllers
             return Json(khModel);
         }
 
+        [RBACAuthorizeAttribute(Control = "ThemKhachHang")]
         public ActionResult ThemKhachHang()
         {
             return View();
         }
 
         [HttpPost]
+        [RBACAuthorizeAttribute(Control = "ThemKhachHang")]
         public ActionResult ThemKhachHang(KhachHangModel2 model)
         {
             IKhachHangService serviceKH = new KhachHangService();
@@ -51,6 +56,7 @@ namespace ClientWebAPI.Controllers
             return View(khModel);
         }
 
+        [RBACAuthorizeAttribute(Control = "SuaKhachHang")]
         public ActionResult SuaKhachHang(KhachHangModel2 model)
         {
             try
@@ -66,6 +72,7 @@ namespace ClientWebAPI.Controllers
             }
         }
 
+        [RBACAuthorizeAttribute(Control = "XoaKhachHang")]
         public ActionResult XoaKhachHang(int idKH)
         {
             IKhachHangService serviceKH = new KhachHangService();

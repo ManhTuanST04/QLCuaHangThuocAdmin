@@ -40,7 +40,7 @@
     <script src="~/Scripts/js/bootstrap.min.js"></script>
     <script src="~/Scripts/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
-
+    <link href="~/Content/css/plugins/datapicker/datepicker3.css" rel="stylesheet" />
 
     <!-- Page-Level Plugin Scripts - Tables -->
     <script src="~/Scripts/js/plugins/dataTables/jquery.dataTables.js"></script>
@@ -55,6 +55,9 @@
 
     <script src="~/Scripts/flugins/chosen/chosen.jquery.js"></script>
     <script src="~/Scripts/flugins/select2/select2.full.min.js"></script>
+
+    <script src="~/Scripts/js/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Scripts/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 </head>
 
 <body>
@@ -70,7 +73,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Hệ thống quản lý cửa hàng thuốc</a>
+                <a class="navbar-brand" href="/Home/Index">Hệ thống quản lý cửa hàng thuốc</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -310,6 +313,12 @@
                                     <a href="/Product/Index"><i class="fa fa-dashboard fa-fw"></i> Quản lý sản phẩm</a>
                                 </li>
                             }
+                            @if (lstUserControl.SingleOrDefault(x => x == "XemNCC") != null)
+                            {
+                                <li>
+                                    <a href="/NhaCungCap/DanhSachNhaCungCap"><i class="fa fa-bell fa-fw"></i> Quản lý nhà cung cấp</a>
+                                </li>
+                            }
                             @if (lstUserControl.SingleOrDefault(x => x == "XemKhachHang") != null)
                             {
                                 <li>
@@ -320,6 +329,12 @@
                             {
                                 <li>
                                     <a href="/DonDatHang/DanhSachDonHang"><i class="fa fa-bell fa-fw"></i> Quản lý đơn hàng</a>
+                                </li>
+                            }
+                            @if (lstUserControl.SingleOrDefault(x => x == "BCDH") != null)
+                            {
+                                <li>
+                                    <a href="/BaoCao/BaoCaoDonHang"><i class="fa fa-dashboard fa-fw"></i> Báo Cáo Đơn Hàng</a>
                                 </li>
                             }
                             @if (lstUserControl.SingleOrDefault(x => x == "ViewUser") != null)
@@ -338,7 +353,7 @@
                                 </li>
                             }
 
-                            
+
                         </ul>
                         <!-- /#side-menu -->
                     </div>

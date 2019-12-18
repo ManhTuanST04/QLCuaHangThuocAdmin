@@ -21,7 +21,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading" style="display: list-item;font-weight: 700; height: 55px;">
                     <div style="float:left">Danh sách người dùng</div>
-                    <div style="float:right"><button class="btn btn-primary" id="openModal">Thêm Mới</button></div>
+                    @if (lstUserControl.SingleOrDefault(x => x == "AddUser") != null)
+                    {
+                        <div style="float:right"><button class="btn btn-primary" id="openModal">Thêm Mới</button></div>
+                    }
                 </div>
                 <div class="form-group">
                     @Html.AntiForgeryToken()
@@ -55,9 +58,21 @@
                                             <td class="center">@acc.mobile</td>
                                             <td class="center">@acc.email</td>
                                             <td>
-                                                <a onclick="PrepareEditUser(@acc.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
-                                                <a onclick="DeleteUser(@acc.id, '@acc.userName')"><i class="fa fa-trash-o" aria-hidden="true"></i></a> &nbsp;&nbsp;
-                                                <a href="/Role/PhanQuyenUser?userId=@acc.id"><i class="fa fa-users" aria-hidden="true"></i></a>
+                                                @if (lstUserControl.SingleOrDefault(x => x == "EditUser") != null)
+                                                {
+                                                    <a onclick="PrepareEditUser(@acc.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                }
+                                                |
+                                                @if (lstUserControl.SingleOrDefault(x => x == "DeleteUser") != null)
+                                                {
+                                                    <a onclick="DeleteUser(@acc.id, '@acc.userName')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                }
+                                                |
+                                                @if (lstUserControl.SingleOrDefault(x => x == "AssignRole") != null)
+                                                {
+                                                    <a href="/Role/PhanQuyenUser?userId=@acc.id"><i class="fa fa-users" aria-hidden="true"></i></a>
+                                                }
+                                                
                                             </td>
                                         </tr>
                                     }

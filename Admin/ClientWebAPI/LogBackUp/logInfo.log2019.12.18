@@ -1,0 +1,68 @@
+((null)) 2019-12-18 09:54:14,829 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 09:56:14,234 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 09:59:59,242 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 10:18:04,036 INFO ClientWebAPI.Controllers.AccountController - Xóa thành công User: id = 69 
+(tuanvm13) 2019-12-18 10:18:12,576 INFO ClientWebAPI.Controllers.AccountController - Xóa thành công User: id = 51 
+(tuanvm13) 2019-12-18 10:18:29,974 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:thinh 
+(thinh) 2019-12-18 10:18:44,159 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 11:25:43,582 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 11:26:38,224 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 11:47:03,942 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 11:49:00,025 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 11:54:24,713 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 17:56:30,180 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 17:57:31,773 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 17:59:58,411 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:05:49,609 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:08:24,322 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:10:16,955 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:17:22,556 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:20:53,570 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:22:13,538 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:24:44,925 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:29:18,447 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:31:08,053 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:32:36,645 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:37:21,690 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:38:11,674 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:40:02,889 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:40:48,472 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 18:47:28,546 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 18:51:24,583 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 18:51:33,938 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 18:52:13,175 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 18:53:06,742 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 18:55:42,315 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 18:56:10,779 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 18:56:14,783 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 18:56:50,956 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 18:57:04,873 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 18:57:51,828 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 20:05:00,960 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 20:05:02,532 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 20:05:33,755 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 20:10:19,019 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 20:16:11,343 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 20:35:13,542 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 21:43:58,872 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 21:51:48,870 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 21:54:40,522 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 21:59:34,931 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:thinh 
+(thinh) 2019-12-18 21:59:47,849 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 22:04:02,541 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 22:05:46,881 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 22:05:56,738 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 22:18:40,262 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 22:18:44,289 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 22:20:18,939 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 22:20:24,045 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 22:28:48,787 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 22:29:14,308 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 22:56:47,351 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 23:14:37,567 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 23:33:51,138 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 23:35:04,104 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 23:49:31,044 INFO ClientWebAPI.Controllers.ProductController - Lấy thông danh sách sản phẩm 
+(tuanvm13) 2019-12-18 23:49:36,960 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+(tuanvm13) 2019-12-18 23:50:23,457 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 
+((null)) 2019-12-18 23:52:52,298 INFO ClientWebAPI.Controllers.PrepareController - Đăng nhập thành công! user:tuanvm13 

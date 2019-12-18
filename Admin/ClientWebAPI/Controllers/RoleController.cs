@@ -45,7 +45,7 @@ namespace ClientWebAPI.Controllers
         }
 
         [HttpPost]
-        [RBACAuthorizeAttribute(Control = "ViewUser")]
+        [RBACAuthorizeAttribute(Control = "AssignRole")]
         public ActionResult PhanQuyenUser(int userId, string sRole)
         {
             UserRoleModel model = new UserRoleModel(userId, sRole);

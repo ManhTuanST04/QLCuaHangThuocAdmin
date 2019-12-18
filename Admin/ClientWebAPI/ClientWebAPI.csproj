@@ -165,12 +165,14 @@
     <Compile Include="Common\RBACAuthorizeAttribute.cs" />
     <Compile Include="Common\RedisCacheHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaoCaoController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ControlController.cs" />
     <Compile Include="Controllers\DonDatHangController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\NhaCungCapController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\PrepareController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -182,6 +184,7 @@
     <Compile Include="IService\IControlService.cs" />
     <Compile Include="IService\IDonDatHangService.cs" />
     <Compile Include="IService\IKhachHangService.cs" />
+    <Compile Include="IService\INhaCungCapService.cs" />
     <Compile Include="IService\IPermissionService.cs" />
     <Compile Include="IService\IProductService.cs" />
     <Compile Include="IService\IRoleSevice.cs" />
@@ -193,6 +196,7 @@
     <Compile Include="Models\GioHangModel.cs" />
     <Compile Include="Models\KhachHangModel2.cs" />
     <Compile Include="Models\KhachHangModel.cs" />
+    <Compile Include="Models\NhaCungCapModel.cs" />
     <Compile Include="Models\PermissionModel.cs" />
     <Compile Include="Models\ProductModel2.cs" />
     <Compile Include="Models\ProductModel.cs" />
@@ -203,6 +207,7 @@
     <Compile Include="ServiceImpl\ControlService.cs" />
     <Compile Include="ServiceImpl\DonDatHangService.cs" />
     <Compile Include="ServiceImpl\KhachHangService.cs" />
+    <Compile Include="ServiceImpl\NhaCungCapService.cs" />
     <Compile Include="ServiceImpl\PermissionService.cs" />
     <Compile Include="ServiceImpl\ProductService.cs" />
     <Compile Include="ServiceImpl\RoleService.cs" />
@@ -344,6 +349,7 @@
     <Content Include="Content\css\plugins\chosen\bootstrap-chosen.css" />
     <Content Include="Content\css\plugins\chosen\chosen-sprite%402x.png" />
     <Content Include="Content\css\plugins\chosen\chosen-sprite.png" />
+    <Content Include="Content\css\plugins\datapicker\datepicker3.css" />
     <Content Include="Content\css\plugins\dataTables\dataTables.bootstrap.css" />
     <Content Include="Content\css\plugins\morris\morris-0.4.3.min.css" />
     <Content Include="Content\css\plugins\select2\select2.min.css" />
@@ -354,6 +360,7 @@
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\loadding.gif" />
+    <Content Include="Content\img\panel.jpg" />
     <Content Include="Content\img\stop.jpeg" />
     <Content Include="Content\img\text.png" />
     <Content Include="Content\toastr.min.css" />
@@ -454,8 +461,10 @@
     <Content Include="Scripts\js\demo\flot-demo.js" />
     <Content Include="Scripts\js\demo\morris-demo.js" />
     <Content Include="Scripts\js\jquery-1.10.2.js" />
+    <Content Include="Scripts\js\plugins\datapicker\bootstrap-datepicker.js" />
     <Content Include="Scripts\js\plugins\dataTables\dataTables.bootstrap.js" />
     <Content Include="Scripts\js\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\js\plugins\daterangepicker\daterangepicker.js" />
     <Content Include="Scripts\js\plugins\flot\excanvas.min.js" />
     <Content Include="Scripts\js\plugins\flot\jquery.flot.js" />
     <Content Include="Scripts\js\plugins\flot\jquery.flot.pie.js" />
@@ -495,6 +504,10 @@
     <Content Include="Views\KhachHang\ThemKhachHang.cshtml" />
     <Content Include="Views\Product\PrepareAddProduct.cshtml" />
     <Content Include="Views\Product\PrepareUpdateProduct.cshtml" />
+    <Content Include="Views\NhaCungCap\DanhSachNhaCungCap.cshtml" />
+    <Content Include="Views\NhaCungCap\ThemNhaCungCap.cshtml" />
+    <Content Include="Views\NhaCungCap\ChuanBiSuaNhaCungCap.cshtml" />
+    <Content Include="Views\BaoCao\BaoCaoDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -505,6 +518,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Control\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\NhaSanXuat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
