@@ -152,6 +152,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\ShoppingPage\Controllers\ChucNangBoXungController.cs" />
     <Compile Include="Areas\ShoppingPage\Controllers\DonDatHangController.cs" />
     <Compile Include="Areas\ShoppingPage\Controllers\GioHangController.cs" />
     <Compile Include="Areas\ShoppingPage\Controllers\HomeController.cs" />
@@ -441,6 +442,8 @@
     <Content Include="Areas\ShoppingPage\Views\GioHang\DatHang.cshtml" />
     <Content Include="Areas\ShoppingPage\Views\KhachHang\DangNhap.cshtml" />
     <Content Include="Areas\ShoppingPage\Views\DonDatHang\XemDonHangNguoiDung.cshtml" />
+    <Content Include="Areas\ShoppingPage\Views\ChucNangBoXung\GioiThieu.cshtml" />
+    <Content Include="Areas\ShoppingPage\Views\KhachHang\DangKy.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\CustomJS\Account.js" />
     <Content Include="Scripts\CustomJS\Role.js" />

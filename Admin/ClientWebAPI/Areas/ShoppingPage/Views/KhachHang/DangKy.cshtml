@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Areas/ShoppingPage/Views/Shared/_LayoutClient.cshtml";
+}
+
+<div class="col-md-3">
+    <div class="menu-account">
+        <h3>
+            <span>
+                Tài khoản
+            </span>
+        </h3>
+        <ul>
+            <li><a href="dang-nhap.html"><i class="fa fa-sign-in"></i>Đăng nhập</a></li>
+            <li><a href="dang-ky.html"><i class="fa fa-key"></i>Đăng ký</a></li>
+            <li><a href="dang-nhap.html"><i class="fa fa-key"></i>Quên mật khẩu</a></li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-9">
+
+    <div class="breadcrumb clearfix">
+        <ul>
+            <li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" class="home">
+                <a title="Đến trang chủ" href="index.html" itemprop="url"><span itemprop="title">Trang chủ</span></a>
+            </li>
+            <li class="icon-li"><strong>Đăng ký</strong> </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $(".link-site-more").hover(function () { $(this).find(".s-c-n").show(); }, function () { $(this).find(".s-c-n").hide(); });
+    </script>
+    <div class="login-content clearfix">
+        <h1 class="title"><span>Đăng ký tài khoản khách hàng</span></h1>
+
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="contact-feedback">
+                <form action="DangKy" method="post">
+                    <div class="form-group">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon glyphicon-user"></i></span>
+                        <input type="text" placeholder="Họ tên" class="form-control" name="ten" required />
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                        <input type="text" placeholder="Địa chỉ" name="diaChi" class="form-control" />
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input type="email" placeholder="Email" name="email" class="form-control" />
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                        <input type="text" placeholder="Điện thoại" name="dienThoai" class="form-control" required />
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+                        <input type="text" placeholder="Mật khẩu" name="matKhau" class="form-control" required />
+                    </div>
+                    <button class="btn btn-default text-center" type="submit">Đăng ký</button>
+                    <a class="btn btn-warning" href="/ShoppingPage/Home/Index">Hủy bỏ</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

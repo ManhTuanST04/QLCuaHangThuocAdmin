@@ -36,6 +36,28 @@ namespace ClientWebAPI.Areas.ShoppingPage.Controllers
             
         }
 
+        public ActionResult DangKy()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DangKy(KhachHangModel2 model)
+        {
+            try
+            {
+                IKhachHangService serviceKH = new KhachHangService();
+                serviceKH.ThemKhachHang(baseAddress, "khachhang/addkhachhang", model);
+                return RedirectToAction("DangNhap");
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("", "Đã có lỗi xảy ra");
+                return View();
+            }
+        }
+
+
         //16/12/2019
         public ActionResult ChuanBiSuaKhachHang()
         {

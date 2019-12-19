@@ -33,14 +33,14 @@ namespace ClientWebAPI.Controllers
             return Json(khModel);
         }
 
-        [RBACAuthorizeAttribute(Control = "ThemKhachHang")]
+        [RBACAuthorizeAttribute(Control = "ThemKH")]
         public ActionResult ThemKhachHang()
         {
             return View();
         }
 
         [HttpPost]
-        [RBACAuthorizeAttribute(Control = "ThemKhachHang")]
+        [RBACAuthorizeAttribute(Control = "ThemKH")]
         public ActionResult ThemKhachHang(KhachHangModel2 model)
         {
             IKhachHangService serviceKH = new KhachHangService();
@@ -56,7 +56,7 @@ namespace ClientWebAPI.Controllers
             return View(khModel);
         }
 
-        [RBACAuthorizeAttribute(Control = "SuaKhachHang")]
+        [RBACAuthorizeAttribute(Control = "SuaKH")]
         public ActionResult SuaKhachHang(KhachHangModel2 model)
         {
             try
@@ -72,7 +72,7 @@ namespace ClientWebAPI.Controllers
             }
         }
 
-        [RBACAuthorizeAttribute(Control = "XoaKhachHang")]
+        [RBACAuthorizeAttribute(Control = "XoaKH")]
         public ActionResult XoaKhachHang(int idKH)
         {
             IKhachHangService serviceKH = new KhachHangService();

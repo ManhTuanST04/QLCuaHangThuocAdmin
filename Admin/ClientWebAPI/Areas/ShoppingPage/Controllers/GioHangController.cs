@@ -20,7 +20,7 @@ namespace ClientWebAPI.Areas.ShoppingPage.Controllers
             if (cart != null)
             {
                 list = (List<GioHangModel>)cart;
-                @ViewBag.CartCount = list.Count;
+                Session["CartCount"] = list.Count;
             }
             
             return View(list);

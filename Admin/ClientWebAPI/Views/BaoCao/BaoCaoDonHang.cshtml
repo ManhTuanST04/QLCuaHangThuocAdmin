@@ -39,7 +39,7 @@
                                 <div class="form-group" id="data_1">
                                     <label class="font-normal">Từ ngày</label>
                                     <div class="input-group date" data-date-format="dd-mm-yyyy">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" name="sTuNgay" value="@ViewBag.tuNgay" autocomplete="off">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" name="sTuNgay" value="@ViewBag.tuNgay" autocomplete="off" readonly="readonly" style="background-color: white;">
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                 <div class="form-group" id="data_2">
                                     <label class="font-normal">Đến ngày</label>
                                     <div class="input-group date" data-date-format="dd-mm-yyyy">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" name="sDenNgay" value="@ViewBag.denNgay" autocomplete="off">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" name="sDenNgay" value="@ViewBag.denNgay" autocomplete="off" readonly="readonly" style="background-color: white;">
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                                 <div class="form-group">
                                     <label>Tình trạng đơn (*)</label>
                                     <input id="ttdTemp" value="@ViewBag.tinhTrangDon" hidden />
-                                    <select class="chosen-select" name="tinhTrangDon" id="tinhTrangDon">
+                                    <select class="form-control" name="tinhTrangDon" id="tinhTrangDon">
                                         <option value="0">Đơn hàng mới</option>
                                         <option value="1">Đơn hàng đã xuất</option>
                                         <option value="-1">Đơn hàng đã hủy</option>
@@ -258,8 +258,8 @@
     $(document).ready(function () {
         var ddhTemp = $('#ttdTemp').val();
         if (ddhTemp != null && ddhTemp != ' ') {
-            //$("#tinhTrangDon").val("-1");
-            $("#tinhTrangDon option[value=-1]").attr('selected', 'selected');
+            $("#tinhTrangDon").val(ddhTemp);
+            //$("#tinhTrangDon option[value=-1]").attr('selected', 'selected');
         }
 
         $('#data_1 .input-group.date').datepicker({

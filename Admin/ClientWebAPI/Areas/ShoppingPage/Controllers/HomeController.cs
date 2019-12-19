@@ -20,7 +20,7 @@ namespace ClientWebAPI.Areas.ShoppingPage.Controllers
             {
                 //Lấy thông tin giỏ hàng để hiện số lượng lên trag chủ
                 List<GioHangModel> cart = (List<GioHangModel>)Session["Cart"];
-                ViewBag.CartCount = cart != null ? cart.Count : 0;
+                Session["CartCount"] = cart != null ? cart.Count : 0;
 
                 string linkAPI = "product/lstpro";
                 List<ProductModel> lst = ProductDAO.GetAllProduct(baseAddress, linkAPI);

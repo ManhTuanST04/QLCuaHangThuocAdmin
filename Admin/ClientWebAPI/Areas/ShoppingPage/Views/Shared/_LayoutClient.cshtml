@@ -93,9 +93,9 @@
                             <ul class="nav navbar-nav navbar-right topmenu  hidden-xs hidden-sm">
                                 <li class="order-check"><a href="#"><i class="fa fa-user"></i>@ten</a></li>
                                 <li class="order-check"><a href="/ShoppingPage/DonDatHang/XemDonHangNguoiDung"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
-                                <li class="order-cart"><a href="/ShoppingPage/GioHang/XemGioHang"><i class="fa fa-shopping-cart"></i> <span id="display-cart">Giỏ hàng (@ViewBag.CartCount)</span></a></li>
+                                <li class="order-cart"><a href="/ShoppingPage/GioHang/XemGioHang"><i class="fa fa-shopping-cart"></i> <span id="display-cart">Giỏ hàng (@Session["CartCount"])</span></a></li>
                                 <li class="account-login"><a href="/ShoppingPage/KhachHang/DangNhap"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
-                                <li class="account-register"><a href="dang-ky.html"><i class="fa fa-key"></i> Đăng ký </a></li>
+                                <li class="account-register"><a href="/ShoppingPage/KhachHang/DangKy"><i class="fa fa-key"></i> Đăng ký </a></li>
                             </ul>
                             <div class="show-mobile hidden-lg hidden-md">
                                 <div class="quick-user">
@@ -149,10 +149,10 @@
                                 <nav id="mobile-menu" class="mobile-menu collapse navbar-collapse">
                                     <ul class='menu nav navbar-nav'>
                                         <li class="level0"><a class='' href='/ShoppingPage/Home/Index'><span>Trang chủ</span></a></li>
-                                        <li class="level0"><a class='' href='gioi-thieu.html'><span>Giới thiệu</span></a></li>
-                                        <li class="level0"><a class='' href='san-pham.html'><span>Sản phẩm</span></a></li>
-                                        <li class="level0"><a class='' href='tin-tuc.html'><span>Tin tức</span></a></li>
-                                        <li class="level0"><a class='' href='lien-he.html'><span>Liên hệ</span></a></li>
+                                        <li class="level0"><a class='' href='/ShoppingPage/ChucNangBoXung/GioiThieu'><span>Giới thiệu</span></a></li>
+                                        <li class="level0"><a class='' href='#'><span>Sản phẩm</span></a></li>
+                                        <li class="level0"><a class='' href='#'><span>Tin tức</span></a></li>
+                                        <li class="level0"><a class='' href='#'><span>Liên hệ</span></a></li>
                                     </ul>
                                 </nav>
                             </nav>
